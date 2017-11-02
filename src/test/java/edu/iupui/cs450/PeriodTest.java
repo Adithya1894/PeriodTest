@@ -43,6 +43,16 @@ public class PeriodTest
         Assert.assertEquals(7,p.getDays());
     }
 
+    @Test
+    public void testOf()
+    {
+        Period p = Period.of(5, 10, 7);
+
+        Assert.assertEquals(5, p.getYears());
+        Assert.assertEquals(10, p.getMonths());
+        Assert.assertEquals(7,p.getDays());
+    }
+
 
 
 
