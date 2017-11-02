@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.iupui.cs450.PeriodTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2017-11-02T00:26:45" hostname="140-182-67-248.ssl-vpn.iupui.edu" time="0.014">
+  <properties/>
+  <testcase name="testOfWeeks" classname="edu.iupui.cs450.PeriodTest" time="0.011"/>
+  <testcase name="testOfYears" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
+  <testcase name="testIfConditionOfCreate" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
+  <testcase name="testOf" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
+  <testcase name="testOfMonths" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
+  <testcase name="testIfOfWithDays" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
+  <testcase name="testIfOfWithMonths" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
+  <testcase name="testIfOfWithYears" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
+  <testcase name="testOfDays" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
