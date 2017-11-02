@@ -95,8 +95,8 @@ public class PeriodTest
     @Test
     public void testPlusYears()
     {
-        Period P = Period.ZERO.plusYears(5);
-        Assert.assertEquals(10, P.getYears() + 5);
+        Period P = Period.ZERO.plusYears(0);
+        Assert.assertEquals(0, P.getYears() );
         Assert.assertEquals(0, P.getMonths());
         Assert.assertEquals(0, P.getDays());
 
@@ -104,19 +104,19 @@ public class PeriodTest
     }
     @Test
     public void testPlusMonths(){
-        Period p = Period.ZERO.plusMonths(5);
+        Period p = Period.ZERO.plusMonths(0);
         //Period p = Period.ZERO.plusMonths(10);
         Assert.assertEquals(0, p.getYears() );
-        Assert.assertEquals(5, p.getMonths());
+        Assert.assertEquals(0, p.getMonths());
         Assert.assertEquals(0, p.getDays());
 
     }
     @Test
     public void testPlusDays(){
-        Period p = Period.ZERO.plusDays(5);
+        Period p = Period.ZERO.plusDays(0);
         Assert.assertEquals(0, p.getYears() );
         Assert.assertEquals(0, p.getMonths());
-        Assert.assertEquals(5, p.getDays() );
+        Assert.assertEquals(0, p.getDays() );
 
     }
     @Test
@@ -128,19 +128,20 @@ public class PeriodTest
     }
 
     @Test
+    //Needs to be Implemented properly
     public void testMultipliedBy()
     {
         Period p = Period.ZERO.multipliedBy(10);
 
-        Period Y = Period.ofYears(5);
-        Period M = Period.ofMonths(5);
-        Period D = Period.ofDays(5);
+        Period Y = Period.of(10,10,10);
+        //Period M = Period.ofMonths(5);
+        //Period D = Period.ofDays(5);
 
 
 
-        Assert.assertEquals(50, Y.getYears()*10);
-        Assert.assertEquals(50, M.getMonths()*10);
-        Assert.assertEquals(50, D.getDays()*10);
+        Assert.assertEquals(100, Y.getYears()*10);
+        Assert.assertEquals(100, Y.getMonths()*10);
+        Assert.assertEquals(100, Y.getDays()*10);
 
     }
     @Test
@@ -150,6 +151,15 @@ public class PeriodTest
         //p = Period.ofMonths(5);
         Assert.assertEquals(130, p.toTotalMonths());
 
+
+    }
+
+    @Test
+    public void testIsNegative(){
+        Period p = Period.of(10,10,10);
+        //Assert.assertEquals(true, p.isNegative());
+        //Assert.assertEquals(true, p.isNegative());
+        Assert.assertEquals(false, p.isNegative());
 
     }
 
