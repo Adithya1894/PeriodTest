@@ -213,6 +213,29 @@ public class PeriodTest {
 
     }
 
+    /**
+     * all the minus years, months, Days are to be implemented more clearly
+     */
+    @Test
+    public void testMinusYears()
+    {
+        Period p = Period.ZERO;
+        p.minusYears(2);
+
+    }
+    @Test
+    public void testMinusMonths()
+    {
+        Period p = Period.ZERO;
+        p.minusMonths(2);
+    }
+    @Test
+    public void testMinusDays()
+    {
+        Period p = Period.ZERO;
+        p.minusDays(3);
+    }
+
 
 
 
