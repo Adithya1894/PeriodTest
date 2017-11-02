@@ -106,9 +106,17 @@ public class PeriodTest
     public void testPlusMonths(){
         Period p = Period.ZERO.plusMonths(0);
         //Period p = Period.ZERO.plusMonths(10);
-        Assert.assertEquals(0, p.getMonths() );
+        Assert.assertEquals(0, p.getYears() );
         Assert.assertEquals(0, p.getMonths());
         Assert.assertEquals(0, p.getDays());
+
+    }
+    @Test
+    public void testPlusDays(){
+        Period p = Period.ZERO.plusDays(0);
+        Assert.assertEquals(0, p.getYears() );
+        Assert.assertEquals(0, p.getMonths());
+        Assert.assertEquals(0, p.getDays() );
 
     }
 
