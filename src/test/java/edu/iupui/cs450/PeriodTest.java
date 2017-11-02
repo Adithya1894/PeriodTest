@@ -24,6 +24,15 @@ public class PeriodTest
         Assert.assertEquals(10, p.getMonths());
         Assert.assertEquals(0,p.getDays());
     }
+    @Test
+    public void testOfWeeks()
+    {
+        Period p = Period.ofWeeks(4);
+
+        Assert.assertEquals(0, p.getYears());
+        Assert.assertEquals(0, p.getMonths());
+        Assert.assertEquals(28, p.getDays());
+    }
 
 
 
