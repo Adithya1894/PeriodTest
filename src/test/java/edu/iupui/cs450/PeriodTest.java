@@ -52,6 +52,15 @@ public class PeriodTest
         Assert.assertEquals(10, p.getMonths());
         Assert.assertEquals(7,p.getDays());
     }
+    @Test
+    public void testIfConditionOfCreate()
+    {
+        Period p = Period.of(0, 0, 0);
+
+        Assert.assertEquals(0, p.getYears());
+        Assert.assertEquals(0, p.getMonths());
+        Assert.assertEquals(0,p.getDays());
+    }
 
 
 
