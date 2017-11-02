@@ -15,6 +15,16 @@ public class PeriodTest
     Assert.assertEquals(0, p.getMonths());
     Assert.assertEquals(0, p.getDays());
   }
+    @Test
+    public void testOfMonths()
+    {
+        Period p = Period.ofMonths(10);
+
+        Assert.assertEquals(0,p.getYears());
+        Assert.assertEquals(10, p.getMonths());
+        Assert.assertEquals(0,p.getDays());
+    }
+
 
 
 
