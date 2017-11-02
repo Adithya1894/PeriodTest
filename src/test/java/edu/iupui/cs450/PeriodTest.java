@@ -119,6 +119,13 @@ public class PeriodTest
         Assert.assertEquals(0, p.getDays() );
 
     }
+    @Test
+    public void testNegated(){
+        Period p = Period.ZERO.negated();
+        Assert.assertEquals(0, p.getYears()*-1);
+        Assert.assertEquals(0, p.getDays()*-1);
+        Assert.assertEquals(0, p.getDays()*-1);
+    }
 
 
 
