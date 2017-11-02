@@ -102,6 +102,15 @@ public class PeriodTest
 
 
     }
+    @Test
+    public void testPlusMonths(){
+        Period p = Period.ZERO.plusMonths(0);
+        //Period p = Period.ZERO.plusMonths(10);
+        Assert.assertEquals(0, p.getMonths() );
+        Assert.assertEquals(0, p.getMonths());
+        Assert.assertEquals(0, p.getDays());
+
+    }
 
 
 
