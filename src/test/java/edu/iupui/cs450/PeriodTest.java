@@ -155,6 +155,12 @@ public class PeriodTest
     }
 
     @Test
+    public void testIsZero(){
+       // Period p = Period.ZERO.isZero();
+         //       Assert.assertEquals(true, p.isZero());
+    }
+
+    @Test
     public void testIsNegative(){
         Period p = Period.of(10,10,10);
         //Assert.assertEquals(true, p.isNegative());
