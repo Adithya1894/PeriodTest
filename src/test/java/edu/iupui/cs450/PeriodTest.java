@@ -71,6 +71,18 @@ public class PeriodTest
         Assert.assertEquals(0, P.getDays());
 
     }
+    @Test
+    public void testIfOfWithMonths()
+    {
+        Period P = Period.ZERO.withMonths(0);
+        //Assert.assertEquals(10, P.getYears());
+        Assert.assertEquals(0, P.getYears());
+        Assert.assertEquals(0, P.getMonths());
+        Assert.assertEquals(0, P.getDays());
+
+    }
+
+
 
 
 
