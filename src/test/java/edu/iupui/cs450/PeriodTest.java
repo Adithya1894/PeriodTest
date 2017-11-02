@@ -183,7 +183,7 @@ public class PeriodTest {
         Assert.assertEquals(expResult, p.getUnits());
 
     }*/
-
+    //needs more improvement
     @Test
     public void testEquals()
     {
@@ -192,7 +192,26 @@ public class PeriodTest {
         Assert.assertEquals(false,p.equals(null));
 
     }
+    //needs improvement
+    @Test
+    public void testNormalized()
+    {
+        Period p = Period.of(-2,2,2);
+        //Period negative = Period.of(-2,2,2);
+        //long totalMonths = negative.toTotalMonths();
 
+
+        long totalMonths = p.toTotalMonths();
+        long splitYears = totalMonths / 12;
+        int splitMonths = (int) (totalMonths % 12);
+        Assert.assertEquals(-22,totalMonths);
+        //Assert.assertEquals(-1,splitYears);
+        //Assert.assertEquals(2,splitMonths);
+        //Assert.assertEquals(true,p.normalized());
+        p.normalized();
+
+
+    }
 
 
 
