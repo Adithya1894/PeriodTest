@@ -3,6 +3,7 @@ package edu.iupui.cs450;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalUnit;
 import java.util.*;
 
@@ -236,9 +237,22 @@ public class PeriodTest {
         p.minusDays(3);
     }
 
+    @Test
+    public void testGet()
+    {
+
+        Period y = Period.ofYears(1);
+        //Period m = Period.ofMonths(1);
+        //Period d = Period.ofDays(1);
+        Assert.assertEquals(1, y.get(ChronoUnit.YEARS));
+        Assert.assertEquals(0, y.get(ChronoUnit.MONTHS));
+        Assert.assertEquals(0, y.get(ChronoUnit.DAYS));
 
 
-////sample commmit
+
+
+    }
+
 
 
 
