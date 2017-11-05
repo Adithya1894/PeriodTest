@@ -3,6 +3,7 @@ package edu.iupui.cs450;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.time.chrono.IsoChronology;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalUnit;
 import java.util.*;
@@ -250,7 +251,7 @@ public class PeriodTest {
 
     }
 
-
+    //completed test case
     @Test
     public void testPlus(){
         Period p = Period.of(1,1,1);
@@ -262,6 +263,15 @@ public class PeriodTest {
         Assert.assertEquals(addMonths,addMonths);
         Assert.assertEquals(addDays,addDays);
 
+    }
+
+    @Test
+    public void testGetChronology()
+    {
+        Period p = Period.ZERO;
+        IsoChronology is = p.getChronology();
+        Assert.assertEquals(is, is);
+        
     }
 
 
