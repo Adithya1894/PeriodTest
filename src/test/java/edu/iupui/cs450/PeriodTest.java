@@ -3,8 +3,10 @@ package edu.iupui.cs450;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.time.LocalDate;
 import java.time.chrono.IsoChronology;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.Temporal;
 import java.time.temporal.TemporalUnit;
 import java.util.*;
 
@@ -264,14 +266,26 @@ public class PeriodTest {
         Assert.assertEquals(addDays,addDays);
 
     }
-
+    //No branches, Test Completed
     @Test
     public void testGetChronology()
     {
         Period p = Period.ZERO;
         IsoChronology is = p.getChronology();
         Assert.assertEquals(is, is);
-        
+
+    }
+    //Missing the branch if totalMonths is not equal to zero
+    @Test
+    public void testAddTo(){
+
+        //Period p = Period.of(0,0,0);
+        Period p1 = Period.of(1,1,1);
+
+        //Temporal T = p.addTo(LocalDate.now());
+        Temporal T1 = p1.addTo(LocalDate.now());
+        //Assert.assertEquals(T,T);
+        Assert.assertEquals(T1,T1);
     }
 
 
