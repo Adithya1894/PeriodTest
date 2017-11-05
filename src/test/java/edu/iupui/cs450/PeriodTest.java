@@ -2,8 +2,10 @@ package edu.iupui.cs450;
 
 import org.junit.Assert;
 import org.junit.Test;
+import sun.java2d.pipe.AAShapePipe;
 
 import java.time.LocalDate;
+import java.time.chrono.ChronoPeriod;
 import java.time.chrono.IsoChronology;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.Temporal;
@@ -279,13 +281,46 @@ public class PeriodTest {
     @Test
     public void testAddTo(){
 
-        //Period p = Period.of(0,0,0);
+        Period p = Period.of(0,0,0);
         Period p1 = Period.of(1,1,1);
 
-        //Temporal T = p.addTo(LocalDate.now());
+        Temporal T = p.addTo(LocalDate.now());
         Temporal T1 = p1.addTo(LocalDate.now());
-        //Assert.assertEquals(T,T);
+        Assert.assertEquals(T,T);
         Assert.assertEquals(T1,T1);
+    }
+    //not covered all branches
+    @Test
+    public void testSubtractFrom(){
+
+        Period p = Period.of(0,0,0);
+        //Period p1 = Period.of(1,1,1);
+
+        Temporal T = p.subtractFrom(LocalDate.now());
+        //Temporal T1 = p1.subtractFrom(LocalDate.now());
+        Assert.assertEquals(T,T);
+        //Assert.assertEquals(T1,T1);
+    }
+
+    /**
+     * This is not at all completed, needs to be implemented properly
+     */
+    @Test
+    public void testFrom(){
+
+        Period p = Period.from(Period.ofMonths(12));
+        ChronoPeriod p1  = p.from(Period.ofDays(11));
+
+
+    }
+
+
+    @Test
+    public void testParse(){
+
+        Period p = Period.parse("P5D");
+        Assert.assertEquals(p,p);
+
     }
 
 
