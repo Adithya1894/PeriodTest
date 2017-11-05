@@ -248,8 +248,19 @@ public class PeriodTest {
         Assert.assertEquals(0, y.get(ChronoUnit.MONTHS));
         Assert.assertEquals(0, y.get(ChronoUnit.DAYS));
 
+    }
 
 
+    @Test
+    public void testPlus(){
+        Period p = Period.of(1,1,1);
+        Period addYears = p.plus(Period.ofYears(1));
+        Period addMonths = p.plus(Period.ofMonths(1));
+        Period addDays = p.plus(Period.ofDays(1));
+
+        Assert.assertEquals(addYears,addYears);
+        Assert.assertEquals(addMonths,addMonths);
+        Assert.assertEquals(addDays,addDays);
 
     }
 
