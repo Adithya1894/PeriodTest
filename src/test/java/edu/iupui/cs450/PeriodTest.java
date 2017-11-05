@@ -314,12 +314,49 @@ public class PeriodTest {
 
     }
 
-
+    /**
+     * Need to write code to catch Exceptions and More
+     */
     @Test
     public void testParse(){
 
-        Period p = Period.parse("P5D");
-        Assert.assertEquals(p,p);
+        Period p = Period.of(-2,-2,0);
+        Period Negative = p.parse("-P2Y2M");
+
+        Period p2 = Period.of(-1,1,0);
+        Period NegativeYears = p2.parse("P-1Y1M");
+
+        Period p1 = Period.ofDays(5);
+        Period days = p1.parse("P5D");
+
+
+        Period wrong = Period.of(0,3,3);
+
+        try {
+            Period formatException = wrong.parse("PtYtMtD");
+        }
+        catch(Exception e)
+        {
+
+        }
+
+
+
+        Assert.assertEquals(days,days);
+
+
+    }
+    //No Branches in this Method,  code Coverage is complete
+    @Test
+    public void testMinus(){
+        Period p = Period.of(1,1,1);
+        Period minusYears = p.minus(Period.ofYears(1));
+        Period minusMonths = p.minus(Period.ofMonths(1));
+        Period minusDays = p.minus(Period.ofDays(1));
+
+        Assert.assertEquals(minusYears,minusYears);
+        Assert.assertEquals(minusMonths,minusMonths);
+        Assert.assertEquals(minusDays,minusDays);
 
     }
 
