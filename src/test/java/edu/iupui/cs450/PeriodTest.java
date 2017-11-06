@@ -191,13 +191,59 @@ public class PeriodTest {
     }*/
     //needs more improvement
     @Test
-    public void testEquals()
+    public void testIfEquals()
     {
-        Period p = Period.ZERO;
+        /*Period p = Period.from(Period.ofMonths(12));
+        ChronoPeriod p1  = p.from(Period.ofDays(11));
+        */
+
+
+
+        Period p = Period.of(1,1,1);
 
         Assert.assertEquals(false,p.equals(null));
 
+
+        //Period p1 = Period.of(1,1,1);
+
+        Assert.assertEquals(true,p.equals(Period.of(1,1,1)));
+
+
+
+
+
+
+
     }
+
+    @Test
+    public void testElseEquals()
+    {
+        /*Period p = Period.from(Period.ofMonths(12));
+        ChronoPeriod p1  = p.from(Period.ofDays(11));
+        */
+
+
+
+        Period p = Period.of(1,1,1);
+
+        //Assert.assertEquals(false,p.equals(null));
+
+
+        //Period p1 = Period.of(1,1,1);
+        ChronoPeriod p1 = Period.ZERO;
+        Assert.assertEquals(false,p.equals(p1.toString()));
+
+
+
+
+
+
+
+    }
+
+
+
     //needs improvement
     @Test
     public void testNormalized()
@@ -308,6 +354,11 @@ public class PeriodTest {
     @Test
     public void testFrom(){
 
+
+        /*Period p = Period.from(Period.ofMonths(12));
+        ChronoPeriod p1  = p.from(Period.ofDays(11));
+        */
+
         Period p = Period.from(Period.ofMonths(12));
         ChronoPeriod p1  = p.from(Period.ofDays(11));
 
@@ -357,6 +408,16 @@ public class PeriodTest {
         Assert.assertEquals(minusYears,minusYears);
         Assert.assertEquals(minusMonths,minusMonths);
         Assert.assertEquals(minusDays,minusDays);
+
+    }
+    //Test case to check the toString Method.()Coveing
+    @Test
+    public void testToString()
+    {
+        Period p = Period.of(1,1,1);
+
+        String p1 = p.toString();
+
 
     }
 
