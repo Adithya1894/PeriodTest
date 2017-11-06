@@ -360,7 +360,14 @@ public class PeriodTest {
         */
 
         Period p = Period.from(Period.ofMonths(12));
-        ChronoPeriod p1  = p.from(Period.ofDays(11));
+        //ChronoPeriod p1  = p.from(ChronoPeriod.getUni);
+
+
+
+        Period p1 = Period.from(ChronoPeriod.between(LocalDate.now(), LocalDate.of(1994,3,12)));
+
+
+
 
 
     }
