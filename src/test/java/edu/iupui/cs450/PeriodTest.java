@@ -169,6 +169,13 @@ public class PeriodTest {
     }
 
     @Test
+    public void testIsNotZero() {
+        Period p = Period.of(12, 12, 12);
+
+        Assert.assertEquals(false, p.isZero());
+    }
+
+    @Test
     public void testIsNegative() {
         Period p = Period.of(10, 10, 10);
         //Assert.assertEquals(true, p.isNegative());
@@ -176,6 +183,18 @@ public class PeriodTest {
         Assert.assertEquals(false, p.isNegative());
 
     }
+
+    @Test
+    public void testElseIsNegative(){
+
+        Period p = Period.of(-2, 0, -2);
+        Assert.assertEquals(true, p.isNegative());
+
+
+    }
+
+
+
 
     /*@Test
     public void testgetUnits()
@@ -272,6 +291,9 @@ public class PeriodTest {
     public void testMinusYears()
     {
         Period p = Period.ZERO;
+        Period p1 = Period.ofMonths(12);
+        Period i = p1.minusYears(1);
+
         p.minusYears(2);
 
     }
