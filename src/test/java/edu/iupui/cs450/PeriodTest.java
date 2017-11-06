@@ -79,6 +79,12 @@ public class PeriodTest {
     }
 
     @Test
+    public void testElseWithYears(){
+        Period p = Period.of(1,1,1);
+        Period p1 = p.withYears(1);
+    }
+
+    @Test
     public void testIfOfWithMonths() {
         Period P = Period.ZERO.withMonths(5);
         //Assert.assertEquals(10, P.getYears());
@@ -89,6 +95,15 @@ public class PeriodTest {
     }
 
     @Test
+    public void testElseOfWithmonths(){
+
+        Period p = Period.of(1,1,1);
+        Period p1 = p.withMonths(1);
+
+    }
+
+
+    @Test
     public void testIfOfWithDays() {
         Period P = Period.ZERO.withDays(5);
         //Assert.assertEquals(10, P.getYears());
@@ -96,6 +111,14 @@ public class PeriodTest {
         Assert.assertEquals(0, P.getMonths());
         Assert.assertEquals(5, P.getDays());
 
+    }
+
+    @Test
+    public void testElseWithDays(){
+
+        Period p = Period.of(1,1,1);
+
+        Period p1 = p.withDays(1);
     }
 
     @Test
@@ -138,9 +161,12 @@ public class PeriodTest {
     @Test
     //Needs to be Implemented properly
     public void testMultipliedBy() {
-        Period p = Period.ZERO.multipliedBy(10);
+
 
         Period Y = Period.of(10, 10, 10);
+
+
+        Period p = Y.multipliedBy(10);
         //Period M = Period.ofMonths(5);
         //Period D = Period.ofDays(5);
 
@@ -575,6 +601,13 @@ public class PeriodTest {
         //Assert.assertEquals("P0D", p1);
 
 
+    }
+
+    @Test
+    public void testZeroTOString()
+    {
+        Period p = Period.of(0,0,0);
+        String p1 = p.toString();
     }
 
 
