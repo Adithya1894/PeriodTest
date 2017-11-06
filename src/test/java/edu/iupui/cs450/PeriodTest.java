@@ -151,6 +151,21 @@ public class PeriodTest {
 
     }
 
+    //Tests else branch of multipliedBy()
+    @Test
+    public void testElseMultipliedBy(){
+
+        Period p = Period.ZERO.multipliedBy(0);
+
+    }
+
+    @Test
+    public void testElseScalarMultipliedBy(){
+
+        Period p = Period.ZERO.multipliedBy(1);
+
+    }
+
     @Test
     public void testToTotalMonths() {
         Period p = Period.of(10, 10, 10);
@@ -453,6 +468,20 @@ public class PeriodTest {
 
 
     }
+    //Tests the other branches of Parse()
+    @Test
+    public void testelseParse()
+    {
+       try {
+           Period p = Period.of(0, 0, 0);
+           Period Negative = p.parse("");
+       }
+       catch(Exception e){
+
+    }
+    }
+
+
     //No Branches in this Method,  code Coverage is complete
     @Test
     public void testMinus(){
@@ -476,16 +505,34 @@ public class PeriodTest {
 
 
     }
-
+    //Tests the toString() when years are ZERO
     @Test
-    public void testZeroToString()
+    public void testZeroYearsToString()
     {
-        Period p = Period.of(0,0,0);
+        Period p = Period.of(0,1,1);
 
         String p1 = p.toString();
 
+        //Assert.assertEquals("P0D", p1);
+
 
     }
+    //Tests the toString() When MOnths are Zero
+    @Test
+    public void testZeroMonthsToString()
+    {
+        Period p = Period.of(1,0,1);
+
+        String p1 = p.toString();
+
+        //Assert.assertEquals("P0D", p1);
+
+
+    }
+
+
+
+
 
 
 
