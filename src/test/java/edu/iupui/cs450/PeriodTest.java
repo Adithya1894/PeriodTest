@@ -529,6 +529,18 @@ public class PeriodTest {
 
 
     }
+    //Tests the toString() when Days are Zero
+    @Test
+    public void testZeroDaysToString()
+    {
+        Period p = Period.of(1,1,0);
+
+        String p1 = p.toString();
+
+        //Assert.assertEquals("P0D", p1);
+
+
+    }
 
 
 
