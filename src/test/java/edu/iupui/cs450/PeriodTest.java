@@ -199,12 +199,31 @@ public class PeriodTest {
 
     }
 
-    @Test
-    public void testElseIsNegative(){
 
-        Period p = Period.of(-2, 0, -2);
+    @Test
+    public void testYearsIsNegative() {
+        Period p = Period.of(10, -2, -2);
+        //Assert.assertEquals(true, p.isNegative());
+        //Assert.assertEquals(true, p.isNegative());
         Assert.assertEquals(true, p.isNegative());
 
+    }
+
+    @Test
+    public void testMonthsIsNegative(){
+
+        Period p = Period.of(-2, 12, -2);
+        Assert.assertEquals(true, p.isNegative());
+
+
+    }
+
+    @Test
+    public void testDaysIsNegative() {
+        Period p = Period.of(10, 10, -2);
+        //Assert.assertEquals(true, p.isNegative());
+        //Assert.assertEquals(true, p.isNegative());
+        Assert.assertEquals(true, p.isNegative());
 
     }
 
