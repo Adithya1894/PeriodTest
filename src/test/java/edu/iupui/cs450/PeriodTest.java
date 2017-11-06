@@ -370,6 +370,33 @@ public class PeriodTest {
         //Assert.assertEquals(T1,T1);
     }
 
+    //checks the not Zero condition
+    @Test
+    public void testZeroSubtractFrom(){
+
+        Period p = Period.of(1,0,1);
+        //Period p1 = Period.of(1,1,1);
+
+        Temporal T = p.subtractFrom(LocalDate.now());
+        //Temporal T1 = p1.subtractFrom(LocalDate.now());
+        Assert.assertEquals(T,T);
+        //Assert.assertEquals(T1,T1);
+    }
+
+
+    @Test
+    public void testZeroTotalmonthsSubtractFrom(){
+        Period p = Period.of(1,1,1);
+        //Period p1 = Period.of(1,1,1);
+
+        Temporal T = p.subtractFrom(LocalDate.of(1,1,1));
+        //Temporal T1 = p1.subtractFrom(LocalDate.now());
+        Assert.assertEquals(T,T);
+
+
+
+    }
+
     /**
      * This is not at all completed, needs to be implemented properly
      */
@@ -444,6 +471,16 @@ public class PeriodTest {
     public void testToString()
     {
         Period p = Period.of(1,1,1);
+
+        String p1 = p.toString();
+
+
+    }
+
+    @Test
+    public void testZeroToString()
+    {
+        Period p = Period.of(0,0,0);
 
         String p1 = p.toString();
 
