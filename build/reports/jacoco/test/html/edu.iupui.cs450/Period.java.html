@@ -251,31 +251,31 @@ public final class Period implements ChronoPeriod {
      * @throws ArithmeticException if the amount of years, months or days exceeds an int
      */
     public static Period from(TemporalAmount amount) {
-<span class="nc bnc" id="L254" title="All 2 branches missed.">        if (amount instanceof Period) {</span>
-<span class="nc" id="L255">            return (Period) amount;</span>
+<span class="fc bfc" id="L254" title="All 2 branches covered.">        if (amount instanceof Period) {</span>
+<span class="fc" id="L255">            return (Period) amount;</span>
         }
-<span class="nc bnc" id="L257" title="All 2 branches missed.">        if (amount instanceof ChronoPeriod) {</span>
-<span class="nc bnc" id="L258" title="All 2 branches missed.">            if (IsoChronology.INSTANCE.equals(((ChronoPeriod) amount).getChronology()) == false) {</span>
+<span class="pc bpc" id="L257" title="1 of 2 branches missed.">        if (amount instanceof ChronoPeriod) {</span>
+<span class="pc bpc" id="L258" title="1 of 2 branches missed.">            if (IsoChronology.INSTANCE.equals(((ChronoPeriod) amount).getChronology()) == false) {</span>
 <span class="nc" id="L259">                throw new DateTimeException(&quot;Period requires ISO chronology: &quot; + amount);</span>
             }
         }
-<span class="nc" id="L262">        Objects.requireNonNull(amount, &quot;amount&quot;);</span>
-<span class="nc" id="L263">        int years = 0;</span>
-<span class="nc" id="L264">        int months = 0;</span>
-<span class="nc" id="L265">        int days = 0;</span>
-<span class="nc bnc" id="L266" title="All 2 branches missed.">        for (TemporalUnit unit : amount.getUnits()) {</span>
-<span class="nc" id="L267">            long unitAmount = amount.get(unit);</span>
-<span class="nc bnc" id="L268" title="All 2 branches missed.">            if (unit == ChronoUnit.YEARS) {</span>
-<span class="nc" id="L269">                years = Math.toIntExact(unitAmount);</span>
-<span class="nc bnc" id="L270" title="All 2 branches missed.">            } else if (unit == ChronoUnit.MONTHS) {</span>
-<span class="nc" id="L271">                months = Math.toIntExact(unitAmount);</span>
-<span class="nc bnc" id="L272" title="All 2 branches missed.">            } else if (unit == ChronoUnit.DAYS) {</span>
-<span class="nc" id="L273">                days = Math.toIntExact(unitAmount);</span>
+<span class="fc" id="L262">        Objects.requireNonNull(amount, &quot;amount&quot;);</span>
+<span class="fc" id="L263">        int years = 0;</span>
+<span class="fc" id="L264">        int months = 0;</span>
+<span class="fc" id="L265">        int days = 0;</span>
+<span class="fc bfc" id="L266" title="All 2 branches covered.">        for (TemporalUnit unit : amount.getUnits()) {</span>
+<span class="fc" id="L267">            long unitAmount = amount.get(unit);</span>
+<span class="fc bfc" id="L268" title="All 2 branches covered.">            if (unit == ChronoUnit.YEARS) {</span>
+<span class="fc" id="L269">                years = Math.toIntExact(unitAmount);</span>
+<span class="fc bfc" id="L270" title="All 2 branches covered.">            } else if (unit == ChronoUnit.MONTHS) {</span>
+<span class="fc" id="L271">                months = Math.toIntExact(unitAmount);</span>
+<span class="pc bpc" id="L272" title="1 of 2 branches missed.">            } else if (unit == ChronoUnit.DAYS) {</span>
+<span class="fc" id="L273">                days = Math.toIntExact(unitAmount);</span>
             } else {
 <span class="nc" id="L275">                throw new DateTimeException(&quot;Unit must be Years, Months or Days, but was &quot; + unit);</span>
             }
-<span class="nc" id="L277">        }</span>
-<span class="nc" id="L278">        return create(years, months, days);</span>
+<span class="fc" id="L277">        }</span>
+<span class="fc" id="L278">        return create(years, months, days);</span>
     }
 
     //-----------------------------------------------------------------------
@@ -319,37 +319,37 @@ public final class Period implements ChronoPeriod {
      * @throws DateTimeParseException if the text cannot be parsed to a period
      */
     public static Period parse(CharSequence text) {
-<span class="nc" id="L322">        Objects.requireNonNull(text, &quot;text&quot;);</span>
-<span class="nc" id="L323">        Matcher matcher = PATTERN.matcher(text);</span>
-<span class="nc bnc" id="L324" title="All 2 branches missed.">        if (matcher.matches()) {</span>
-<span class="nc bnc" id="L325" title="All 2 branches missed.">            int negate = (&quot;-&quot;.equals(matcher.group(1)) ? -1 : 1);</span>
-<span class="nc" id="L326">            String yearMatch = matcher.group(2);</span>
-<span class="nc" id="L327">            String monthMatch = matcher.group(3);</span>
-<span class="nc" id="L328">            String weekMatch = matcher.group(4);</span>
-<span class="nc" id="L329">            String dayMatch = matcher.group(5);</span>
-<span class="nc bnc" id="L330" title="All 8 branches missed.">            if (yearMatch != null || monthMatch != null || dayMatch != null || weekMatch != null) {</span>
+<span class="fc" id="L322">        Objects.requireNonNull(text, &quot;text&quot;);</span>
+<span class="fc" id="L323">        Matcher matcher = PATTERN.matcher(text);</span>
+<span class="fc bfc" id="L324" title="All 2 branches covered.">        if (matcher.matches()) {</span>
+<span class="fc bfc" id="L325" title="All 2 branches covered.">            int negate = (&quot;-&quot;.equals(matcher.group(1)) ? -1 : 1);</span>
+<span class="fc" id="L326">            String yearMatch = matcher.group(2);</span>
+<span class="fc" id="L327">            String monthMatch = matcher.group(3);</span>
+<span class="fc" id="L328">            String weekMatch = matcher.group(4);</span>
+<span class="fc" id="L329">            String dayMatch = matcher.group(5);</span>
+<span class="pc bpc" id="L330" title="4 of 8 branches missed.">            if (yearMatch != null || monthMatch != null || dayMatch != null || weekMatch != null) {</span>
                 try {
-<span class="nc" id="L332">                    int years = parseNumber(text, yearMatch, negate);</span>
-<span class="nc" id="L333">                    int months = parseNumber(text, monthMatch, negate);</span>
-<span class="nc" id="L334">                    int weeks = parseNumber(text, weekMatch, negate);</span>
-<span class="nc" id="L335">                    int days = parseNumber(text, dayMatch, negate);</span>
-<span class="nc" id="L336">                    days = Math.addExact(days, Math.multiplyExact(weeks, 7));</span>
-<span class="nc" id="L337">                    return create(years, months, days);</span>
+<span class="fc" id="L332">                    int years = parseNumber(text, yearMatch, negate);</span>
+<span class="fc" id="L333">                    int months = parseNumber(text, monthMatch, negate);</span>
+<span class="fc" id="L334">                    int weeks = parseNumber(text, weekMatch, negate);</span>
+<span class="fc" id="L335">                    int days = parseNumber(text, dayMatch, negate);</span>
+<span class="fc" id="L336">                    days = Math.addExact(days, Math.multiplyExact(weeks, 7));</span>
+<span class="fc" id="L337">                    return create(years, months, days);</span>
 <span class="nc" id="L338">                } catch (NumberFormatException ex) {</span>
 <span class="nc" id="L339">                    throw new DateTimeParseException(&quot;Text cannot be parsed to a Period&quot;, text, 0, ex);</span>
                 }
             }
         }
-<span class="nc" id="L343">        throw new DateTimeParseException(&quot;Text cannot be parsed to a Period&quot;, text, 0);</span>
+<span class="fc" id="L343">        throw new DateTimeParseException(&quot;Text cannot be parsed to a Period&quot;, text, 0);</span>
     }
 
     private static int parseNumber(CharSequence text, String str, int negate) {
-<span class="nc bnc" id="L347" title="All 2 branches missed.">        if (str == null) {</span>
-<span class="nc" id="L348">            return 0;</span>
+<span class="fc bfc" id="L347" title="All 2 branches covered.">        if (str == null) {</span>
+<span class="fc" id="L348">            return 0;</span>
         }
-<span class="nc" id="L350">        int val = Integer.parseInt(str);</span>
+<span class="fc" id="L350">        int val = Integer.parseInt(str);</span>
         try {
-<span class="nc" id="L352">            return Math.multiplyExact(val, negate);</span>
+<span class="fc" id="L352">            return Math.multiplyExact(val, negate);</span>
 <span class="nc" id="L353">        } catch (ArithmeticException ex) {</span>
 <span class="nc" id="L354">            throw new DateTimeParseException(&quot;Text cannot be parsed to a Period&quot;, text, 0, ex);</span>
         }
@@ -399,12 +399,12 @@ public final class Period implements ChronoPeriod {
      */
     @Override
     public long get(TemporalUnit unit) {
-<span class="nc bnc" id="L402" title="All 2 branches missed.">        if (unit == ChronoUnit.YEARS) {</span>
-<span class="nc" id="L403">            return getYears();</span>
-<span class="nc bnc" id="L404" title="All 2 branches missed.">        } else if (unit == ChronoUnit.MONTHS) {</span>
-<span class="nc" id="L405">            return getMonths();</span>
-<span class="nc bnc" id="L406" title="All 2 branches missed.">        } else if (unit == ChronoUnit.DAYS) {</span>
-<span class="nc" id="L407">            return getDays();</span>
+<span class="fc bfc" id="L402" title="All 2 branches covered.">        if (unit == ChronoUnit.YEARS) {</span>
+<span class="fc" id="L403">            return getYears();</span>
+<span class="fc bfc" id="L404" title="All 2 branches covered.">        } else if (unit == ChronoUnit.MONTHS) {</span>
+<span class="fc" id="L405">            return getMonths();</span>
+<span class="pc bpc" id="L406" title="1 of 2 branches missed.">        } else if (unit == ChronoUnit.DAYS) {</span>
+<span class="fc" id="L407">            return getDays();</span>
         } else {
 <span class="nc" id="L409">            throw new UnsupportedTemporalTypeException(&quot;Unsupported unit: &quot; + unit);</span>
         }
@@ -424,7 +424,7 @@ public final class Period implements ChronoPeriod {
      */
     @Override
     public List&lt;TemporalUnit&gt; getUnits() {
-<span class="nc" id="L427">        return SUPPORTED_UNITS;</span>
+<span class="fc" id="L427">        return SUPPORTED_UNITS;</span>
     }
 
     /**
@@ -439,7 +439,7 @@ public final class Period implements ChronoPeriod {
      */
     @Override
     public IsoChronology getChronology() {
-<span class="nc" id="L442">        return IsoChronology.INSTANCE;</span>
+<span class="fc" id="L442">        return IsoChronology.INSTANCE;</span>
     }
 
     //-----------------------------------------------------------------------
@@ -451,7 +451,7 @@ public final class Period implements ChronoPeriod {
      * @return true if this period is zero-length
      */
     public boolean isZero() {
-<span class="nc bnc" id="L454" title="All 2 branches missed.">        return (this == ZERO);</span>
+<span class="fc bfc" id="L454" title="All 2 branches covered.">        return (this == ZERO);</span>
     }
 
     /**
@@ -462,7 +462,7 @@ public final class Period implements ChronoPeriod {
      * @return true if any unit of this period is negative
      */
     public boolean isNegative() {
-<span class="nc bnc" id="L465" title="All 6 branches missed.">        return years &lt; 0 || months &lt; 0 || days &lt; 0;</span>
+<span class="fc bfc" id="L465" title="All 6 branches covered.">        return years &lt; 0 || months &lt; 0 || days &lt; 0;</span>
     }
 
     //-----------------------------------------------------------------------
@@ -592,11 +592,11 @@ public final class Period implements ChronoPeriod {
      * @throws ArithmeticException if numeric overflow occurs
      */
     public Period plus(TemporalAmount amountToAdd) {
-<span class="nc" id="L595">        Period isoAmount = Period.from(amountToAdd);</span>
-<span class="nc" id="L596">        return create(</span>
-<span class="nc" id="L597">                Math.addExact(years, isoAmount.years),</span>
-<span class="nc" id="L598">                Math.addExact(months, isoAmount.months),</span>
-<span class="nc" id="L599">                Math.addExact(days, isoAmount.days));</span>
+<span class="fc" id="L595">        Period isoAmount = Period.from(amountToAdd);</span>
+<span class="fc" id="L596">        return create(</span>
+<span class="fc" id="L597">                Math.addExact(years, isoAmount.years),</span>
+<span class="fc" id="L598">                Math.addExact(months, isoAmount.months),</span>
+<span class="fc" id="L599">                Math.addExact(days, isoAmount.days));</span>
     }
 
     /**
@@ -613,10 +613,10 @@ public final class Period implements ChronoPeriod {
      * @throws ArithmeticException if numeric overflow occurs
      */
     public Period plusYears(long yearsToAdd) {
-<span class="nc bnc" id="L616" title="All 2 branches missed.">        if (yearsToAdd == 0) {</span>
-<span class="nc" id="L617">            return this;</span>
+<span class="fc bfc" id="L616" title="All 2 branches covered.">        if (yearsToAdd == 0) {</span>
+<span class="fc" id="L617">            return this;</span>
         }
-<span class="nc" id="L619">        return create(Math.toIntExact(Math.addExact(years, yearsToAdd)), months, days);</span>
+<span class="fc" id="L619">        return create(Math.toIntExact(Math.addExact(years, yearsToAdd)), months, days);</span>
     }
 
     /**
@@ -633,10 +633,10 @@ public final class Period implements ChronoPeriod {
      * @throws ArithmeticException if numeric overflow occurs
      */
     public Period plusMonths(long monthsToAdd) {
-<span class="nc bnc" id="L636" title="All 2 branches missed.">        if (monthsToAdd == 0) {</span>
-<span class="nc" id="L637">            return this;</span>
+<span class="fc bfc" id="L636" title="All 2 branches covered.">        if (monthsToAdd == 0) {</span>
+<span class="fc" id="L637">            return this;</span>
         }
-<span class="nc" id="L639">        return create(years, Math.toIntExact(Math.addExact(months, monthsToAdd)), days);</span>
+<span class="fc" id="L639">        return create(years, Math.toIntExact(Math.addExact(months, monthsToAdd)), days);</span>
     }
 
     /**
@@ -653,10 +653,10 @@ public final class Period implements ChronoPeriod {
      * @throws ArithmeticException if numeric overflow occurs
      */
     public Period plusDays(long daysToAdd) {
-<span class="nc bnc" id="L656" title="All 2 branches missed.">        if (daysToAdd == 0) {</span>
-<span class="nc" id="L657">            return this;</span>
+<span class="fc bfc" id="L656" title="All 2 branches covered.">        if (daysToAdd == 0) {</span>
+<span class="fc" id="L657">            return this;</span>
         }
-<span class="nc" id="L659">        return create(years, months, Math.toIntExact(Math.addExact(days, daysToAdd)));</span>
+<span class="fc" id="L659">        return create(years, months, Math.toIntExact(Math.addExact(days, daysToAdd)));</span>
     }
 
     //-----------------------------------------------------------------------
@@ -681,11 +681,11 @@ public final class Period implements ChronoPeriod {
      * @throws ArithmeticException if numeric overflow occurs
      */
     public Period minus(TemporalAmount amountToSubtract) {
-<span class="nc" id="L684">        Period isoAmount = Period.from(amountToSubtract);</span>
-<span class="nc" id="L685">        return create(</span>
-<span class="nc" id="L686">                Math.subtractExact(years, isoAmount.years),</span>
-<span class="nc" id="L687">                Math.subtractExact(months, isoAmount.months),</span>
-<span class="nc" id="L688">                Math.subtractExact(days, isoAmount.days));</span>
+<span class="fc" id="L684">        Period isoAmount = Period.from(amountToSubtract);</span>
+<span class="fc" id="L685">        return create(</span>
+<span class="fc" id="L686">                Math.subtractExact(years, isoAmount.years),</span>
+<span class="fc" id="L687">                Math.subtractExact(months, isoAmount.months),</span>
+<span class="fc" id="L688">                Math.subtractExact(days, isoAmount.days));</span>
     }
 
     /**
@@ -702,7 +702,7 @@ public final class Period implements ChronoPeriod {
      * @throws ArithmeticException if numeric overflow occurs
      */
     public Period minusYears(long yearsToSubtract) {
-<span class="nc bnc" id="L705" title="All 2 branches missed.">        return (yearsToSubtract == Long.MIN_VALUE ? plusYears(Long.MAX_VALUE).plusYears(1) : plusYears(-yearsToSubtract));</span>
+<span class="pc bpc" id="L705" title="1 of 2 branches missed.">        return (yearsToSubtract == Long.MIN_VALUE ? plusYears(Long.MAX_VALUE).plusYears(1) : plusYears(-yearsToSubtract));</span>
     }
 
     /**
@@ -719,7 +719,7 @@ public final class Period implements ChronoPeriod {
      * @throws ArithmeticException if numeric overflow occurs
      */
     public Period minusMonths(long monthsToSubtract) {
-<span class="nc bnc" id="L722" title="All 2 branches missed.">        return (monthsToSubtract == Long.MIN_VALUE ? plusMonths(Long.MAX_VALUE).plusMonths(1) : plusMonths(-monthsToSubtract));</span>
+<span class="pc bpc" id="L722" title="1 of 2 branches missed.">        return (monthsToSubtract == Long.MIN_VALUE ? plusMonths(Long.MAX_VALUE).plusMonths(1) : plusMonths(-monthsToSubtract));</span>
     }
 
     /**
@@ -736,7 +736,7 @@ public final class Period implements ChronoPeriod {
      * @throws ArithmeticException if numeric overflow occurs
      */
     public Period minusDays(long daysToSubtract) {
-<span class="nc bnc" id="L739" title="All 2 branches missed.">        return (daysToSubtract == Long.MIN_VALUE ? plusDays(Long.MAX_VALUE).plusDays(1) : plusDays(-daysToSubtract));</span>
+<span class="pc bpc" id="L739" title="1 of 2 branches missed.">        return (daysToSubtract == Long.MIN_VALUE ? plusDays(Long.MAX_VALUE).plusDays(1) : plusDays(-daysToSubtract));</span>
     }
 
     //-----------------------------------------------------------------------
@@ -755,13 +755,13 @@ public final class Period implements ChronoPeriod {
      * @throws ArithmeticException if numeric overflow occurs
      */
     public Period multipliedBy(int scalar) {
-<span class="nc bnc" id="L758" title="All 4 branches missed.">        if (this == ZERO || scalar == 1) {</span>
-<span class="nc" id="L759">            return this;</span>
+<span class="fc bfc" id="L758" title="All 4 branches covered.">        if (this == ZERO || scalar == 1) {</span>
+<span class="fc" id="L759">            return this;</span>
         }
-<span class="nc" id="L761">        return create(</span>
-<span class="nc" id="L762">                Math.multiplyExact(years, scalar),</span>
-<span class="nc" id="L763">                Math.multiplyExact(months, scalar),</span>
-<span class="nc" id="L764">                Math.multiplyExact(days, scalar));</span>
+<span class="fc" id="L761">        return create(</span>
+<span class="fc" id="L762">                Math.multiplyExact(years, scalar),</span>
+<span class="fc" id="L763">                Math.multiplyExact(months, scalar),</span>
+<span class="fc" id="L764">                Math.multiplyExact(days, scalar));</span>
     }
 
     /**
@@ -778,7 +778,7 @@ public final class Period implements ChronoPeriod {
      *  one of the units has the value {@code Long.MIN_VALUE}
      */
     public Period negated() {
-<span class="nc" id="L781">        return multipliedBy(-1);</span>
+<span class="fc" id="L781">        return multipliedBy(-1);</span>
     }
 
     //-----------------------------------------------------------------------
@@ -800,13 +800,13 @@ public final class Period implements ChronoPeriod {
      * @throws ArithmeticException if numeric overflow occurs
      */
     public Period normalized() {
-<span class="nc" id="L803">        long totalMonths = toTotalMonths();</span>
-<span class="nc" id="L804">        long splitYears = totalMonths / 12;</span>
-<span class="nc" id="L805">        int splitMonths = (int) (totalMonths % 12);  // no overflow</span>
-<span class="nc bnc" id="L806" title="All 4 branches missed.">        if (splitYears == years &amp;&amp; splitMonths == months) {</span>
-<span class="nc" id="L807">            return this;</span>
+<span class="fc" id="L803">        long totalMonths = toTotalMonths();</span>
+<span class="fc" id="L804">        long splitYears = totalMonths / 12;</span>
+<span class="fc" id="L805">        int splitMonths = (int) (totalMonths % 12);  // no overflow</span>
+<span class="pc bpc" id="L806" title="1 of 4 branches missed.">        if (splitYears == years &amp;&amp; splitMonths == months) {</span>
+<span class="fc" id="L807">            return this;</span>
         }
-<span class="nc" id="L809">        return create(Math.toIntExact(splitYears), splitMonths, days);</span>
+<span class="fc" id="L809">        return create(Math.toIntExact(splitYears), splitMonths, days);</span>
     }
 
     /**
@@ -820,7 +820,7 @@ public final class Period implements ChronoPeriod {
      * @return the total number of months in the period, may be negative
      */
     public long toTotalMonths() {
-<span class="nc" id="L823">        return years * 12L + months;  // no overflow</span>
+<span class="fc" id="L823">        return years * 12L + months;  // no overflow</span>
     }
 
     //-------------------------------------------------------------------------
@@ -860,21 +860,21 @@ public final class Period implements ChronoPeriod {
      */
     @Override
     public Temporal addTo(Temporal temporal) {
-<span class="nc" id="L863">        validateChrono(temporal);</span>
-<span class="nc bnc" id="L864" title="All 2 branches missed.">        if (months == 0) {</span>
-<span class="nc bnc" id="L865" title="All 2 branches missed.">            if (years != 0) {</span>
-<span class="nc" id="L866">                temporal = temporal.plus(years, YEARS);</span>
+<span class="fc" id="L863">        validateChrono(temporal);</span>
+<span class="fc bfc" id="L864" title="All 2 branches covered.">        if (months == 0) {</span>
+<span class="fc bfc" id="L865" title="All 2 branches covered.">            if (years != 0) {</span>
+<span class="fc" id="L866">                temporal = temporal.plus(years, YEARS);</span>
             }
         } else {
-<span class="nc" id="L869">            long totalMonths = toTotalMonths();</span>
-<span class="nc bnc" id="L870" title="All 2 branches missed.">            if (totalMonths != 0) {</span>
-<span class="nc" id="L871">                temporal = temporal.plus(totalMonths, MONTHS);</span>
+<span class="fc" id="L869">            long totalMonths = toTotalMonths();</span>
+<span class="fc bfc" id="L870" title="All 2 branches covered.">            if (totalMonths != 0) {</span>
+<span class="fc" id="L871">                temporal = temporal.plus(totalMonths, MONTHS);</span>
             }
         }
-<span class="nc bnc" id="L874" title="All 2 branches missed.">        if (days != 0) {</span>
-<span class="nc" id="L875">            temporal = temporal.plus(days, DAYS);</span>
+<span class="fc bfc" id="L874" title="All 2 branches covered.">        if (days != 0) {</span>
+<span class="fc" id="L875">            temporal = temporal.plus(days, DAYS);</span>
         }
-<span class="nc" id="L877">        return temporal;</span>
+<span class="fc" id="L877">        return temporal;</span>
     }
 
     /**
@@ -913,33 +913,33 @@ public final class Period implements ChronoPeriod {
      */
     @Override
     public Temporal subtractFrom(Temporal temporal) {
-<span class="nc" id="L916">        validateChrono(temporal);</span>
-<span class="nc bnc" id="L917" title="All 2 branches missed.">        if (months == 0) {</span>
-<span class="nc bnc" id="L918" title="All 2 branches missed.">            if (years != 0) {</span>
-<span class="nc" id="L919">                temporal = temporal.minus(years, YEARS);</span>
+<span class="fc" id="L916">        validateChrono(temporal);</span>
+<span class="fc bfc" id="L917" title="All 2 branches covered.">        if (months == 0) {</span>
+<span class="fc bfc" id="L918" title="All 2 branches covered.">            if (years != 0) {</span>
+<span class="fc" id="L919">                temporal = temporal.minus(years, YEARS);</span>
             }
         } else {
-<span class="nc" id="L922">            long totalMonths = toTotalMonths();</span>
-<span class="nc bnc" id="L923" title="All 2 branches missed.">            if (totalMonths != 0) {</span>
-<span class="nc" id="L924">                temporal = temporal.minus(totalMonths, MONTHS);</span>
+<span class="fc" id="L922">            long totalMonths = toTotalMonths();</span>
+<span class="pc bpc" id="L923" title="1 of 2 branches missed.">            if (totalMonths != 0) {</span>
+<span class="fc" id="L924">                temporal = temporal.minus(totalMonths, MONTHS);</span>
             }
         }
-<span class="nc bnc" id="L927" title="All 2 branches missed.">        if (days != 0) {</span>
-<span class="nc" id="L928">            temporal = temporal.minus(days, DAYS);</span>
+<span class="fc bfc" id="L927" title="All 2 branches covered.">        if (days != 0) {</span>
+<span class="fc" id="L928">            temporal = temporal.minus(days, DAYS);</span>
         }
-<span class="nc" id="L930">        return temporal;</span>
+<span class="fc" id="L930">        return temporal;</span>
     }
 
     /**
      * Validates that the temporal has the correct chronology.
      */
     private void validateChrono(TemporalAccessor temporal) {
-<span class="nc" id="L937">        Objects.requireNonNull(temporal, &quot;temporal&quot;);</span>
-<span class="nc" id="L938">        Chronology temporalChrono = temporal.query(TemporalQueries.chronology());</span>
-<span class="nc bnc" id="L939" title="All 4 branches missed.">        if (temporalChrono != null &amp;&amp; IsoChronology.INSTANCE.equals(temporalChrono) == false) {</span>
+<span class="fc" id="L937">        Objects.requireNonNull(temporal, &quot;temporal&quot;);</span>
+<span class="fc" id="L938">        Chronology temporalChrono = temporal.query(TemporalQueries.chronology());</span>
+<span class="pc bpc" id="L939" title="2 of 4 branches missed.">        if (temporalChrono != null &amp;&amp; IsoChronology.INSTANCE.equals(temporalChrono) == false) {</span>
 <span class="nc" id="L940">            throw new DateTimeException(&quot;Chronology mismatch, expected: ISO, actual: &quot; + temporalChrono.getId());</span>
         }
-<span class="nc" id="L942">    }</span>
+<span class="fc" id="L942">    }</span>
 
     //-----------------------------------------------------------------------
     /**
@@ -955,16 +955,16 @@ public final class Period implements ChronoPeriod {
      */
     @Override
     public boolean equals(Object obj) {
-<span class="nc bnc" id="L958" title="All 2 branches missed.">        if (this == obj) {</span>
-<span class="nc" id="L959">            return true;</span>
+<span class="fc bfc" id="L958" title="All 2 branches covered.">        if (this == obj) {</span>
+<span class="fc" id="L959">            return true;</span>
         }
-<span class="nc bnc" id="L961" title="All 2 branches missed.">        if (obj instanceof Period) {</span>
-<span class="nc" id="L962">            Period other = (Period) obj;</span>
-<span class="nc bnc" id="L963" title="All 6 branches missed.">            return years == other.years &amp;&amp;</span>
+<span class="fc bfc" id="L961" title="All 2 branches covered.">        if (obj instanceof Period) {</span>
+<span class="fc" id="L962">            Period other = (Period) obj;</span>
+<span class="pc bpc" id="L963" title="3 of 6 branches missed.">            return years == other.years &amp;&amp;</span>
                     months == other.months &amp;&amp;
                     days == other.days;
         }
-<span class="nc" id="L967">        return false;</span>
+<span class="fc" id="L967">        return false;</span>
     }
 
     //-----------------------------------------------------------------------
@@ -978,21 +978,21 @@ public final class Period implements ChronoPeriod {
      */
     @Override
     public String toString() {
-<span class="nc bnc" id="L981" title="All 2 branches missed.">        if (this == ZERO) {</span>
-<span class="nc" id="L982">            return &quot;P0D&quot;;</span>
+<span class="fc bfc" id="L981" title="All 2 branches covered.">        if (this == ZERO) {</span>
+<span class="fc" id="L982">            return &quot;P0D&quot;;</span>
         } else {
-<span class="nc" id="L984">            StringBuilder buf = new StringBuilder();</span>
-<span class="nc" id="L985">            buf.append('P');</span>
-<span class="nc bnc" id="L986" title="All 2 branches missed.">            if (years != 0) {</span>
-<span class="nc" id="L987">                buf.append(years).append('Y');</span>
+<span class="fc" id="L984">            StringBuilder buf = new StringBuilder();</span>
+<span class="fc" id="L985">            buf.append('P');</span>
+<span class="fc bfc" id="L986" title="All 2 branches covered.">            if (years != 0) {</span>
+<span class="fc" id="L987">                buf.append(years).append('Y');</span>
             }
-<span class="nc bnc" id="L989" title="All 2 branches missed.">            if (months != 0) {</span>
-<span class="nc" id="L990">                buf.append(months).append('M');</span>
+<span class="fc bfc" id="L989" title="All 2 branches covered.">            if (months != 0) {</span>
+<span class="fc" id="L990">                buf.append(months).append('M');</span>
             }
-<span class="nc bnc" id="L992" title="All 2 branches missed.">            if (days != 0) {</span>
-<span class="nc" id="L993">                buf.append(days).append('D');</span>
+<span class="fc bfc" id="L992" title="All 2 branches covered.">            if (days != 0) {</span>
+<span class="fc" id="L993">                buf.append(days).append('D');</span>
             }
-<span class="nc" id="L995">            return buf.toString();</span>
+<span class="fc" id="L995">            return buf.toString();</span>
         }
     }
 }
