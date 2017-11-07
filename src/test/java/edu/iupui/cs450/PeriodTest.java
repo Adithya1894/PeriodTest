@@ -668,7 +668,16 @@ public class PeriodTest {
         String p1 = p.toString();
     }
 
-    
+    @Test
+    public void testGetUnits(){
+
+        Period p = Period.of(1,1,1);
+
+        p.getUnits();
+
+
+
+    }
 
 
 
