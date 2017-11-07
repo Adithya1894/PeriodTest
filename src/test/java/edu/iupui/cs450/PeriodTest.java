@@ -316,6 +316,25 @@ public class PeriodTest {
 
 
     }
+    @Test
+    public void testElseNormalized(){
+
+        Period p = Period.of(1,2,2);
+
+        p.normalized();
+
+
+
+    }
+
+    @Test
+    public void testNormalized3(){
+        Period p = Period.of(1,-1,0);
+        p.normalized();
+
+    }
+
+
 
     /**
      * all the minus years, months, Days are to be implemented more clearly
@@ -374,6 +393,34 @@ public class PeriodTest {
         Assert.assertEquals(0, y.get(ChronoUnit.DAYS));
 
     }
+    //Tests the Days Unit
+    @Test
+    public void testDaysGet()
+    {
+
+        Period y = Period.of(1,1,1);
+        //Period m = Period.ofMonths(1);
+        //Period d = Period.ofDays(1);
+        Assert.assertEquals(1, y.get(ChronoUnit.YEARS));
+        Assert.assertEquals(1, y.get(ChronoUnit.MONTHS));
+        try {
+
+            Long p2 = y.get(ChronoUnit.WEEKS);
+        }
+        catch(Exception e){
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+
 
     //completed test case
     @Test
@@ -409,6 +456,17 @@ public class PeriodTest {
         Assert.assertEquals(T,T);
         Assert.assertEquals(T1,T1);
     }
+    @Test
+    public void testNotZeroAddto(){
+        Period p = Period.of(1,0,1);
+
+        Temporal t = p.addTo(LocalDate.now());
+
+    }
+
+
+
+
     //Test to cover the totalMonths == 0 branch in the addTo() Method
     @Test
     public void testTotZeroMonthsAddTo(){
@@ -461,10 +519,10 @@ public class PeriodTest {
 
     @Test
     public void testZeroTotalmonthsSubtractFrom(){
-        Period p = Period.of(1,1,1);
+        Period p = Period.of(0,-1,0);
         //Period p1 = Period.of(1,1,1);
 
-        Temporal T = p.subtractFrom(LocalDate.of(1,1,1));
+        Temporal T = p.subtractFrom(LocalDate.of(0,1,1));
         //Temporal T1 = p1.subtractFrom(LocalDate.now());
         Assert.assertEquals(T,T);
 
@@ -609,6 +667,8 @@ public class PeriodTest {
         Period p = Period.of(0,0,0);
         String p1 = p.toString();
     }
+
+    
 
 
 
