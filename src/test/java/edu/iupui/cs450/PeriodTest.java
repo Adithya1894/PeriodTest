@@ -456,6 +456,8 @@ public class PeriodTest {
         Assert.assertEquals(T,T);
         Assert.assertEquals(T1,T1);
     }
+
+
     @Test
     public void testNotZeroAddto(){
         Period p = Period.of(1,0,1);
@@ -526,6 +528,17 @@ public class PeriodTest {
         //Temporal T1 = p1.subtractFrom(LocalDate.now());
         Assert.assertEquals(T,T);
 
+
+
+    }
+    //This tests the total months is equal to zero branch
+    @Test
+    public void testZeroIfSubtractFrom(){
+
+        Period p = Period.of(1,-12,0);
+        //Period p1 = Period.of(1,1,1);
+
+        Temporal T = p.subtractFrom(LocalDate.of(0,1,23));
 
 
     }
