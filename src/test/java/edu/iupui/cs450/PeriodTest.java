@@ -7,6 +7,7 @@ import sun.java2d.pipe.AAShapePipe;
 import java.time.LocalDate;
 import java.time.chrono.ChronoPeriod;
 import java.time.chrono.IsoChronology;
+import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.Temporal;
 import java.time.temporal.TemporalUnit;
@@ -663,12 +664,100 @@ public class PeriodTest {
            Period p = Period.of(1, 2, 0);
            //Long Val = Long.MAX_VALUE;
 
-           Period Negative = p.parse("PY");
+           Period Negative = p.parse("P2Y");
        }
        catch(Exception e){
 
     }
     }
+
+    @Test
+    public void testNullParse() {
+
+
+        try {
+            Period p = Period.of(1, 2, 0);
+            //Long Val = Long.MAX_VALUE;
+
+            Period Negative = p.parse("P");
+        }
+        catch(Exception e) {
+        }
+
+
+    }
+
+    @Test
+    public void testNullParseMonth(){
+        try{
+            Period p = Period.of(1,1,1);
+            Period big  = p.parse("-p-214748365034");
+
+        }
+        catch(Exception e){
+
+        }
+    }
+
+    @Test
+    public void testelseParseWeek()
+    {
+        try {
+            Period p = Period.of(1, 2, 0);
+            //Long Val = Long.MAX_VALUE;
+
+            Period Negative = p.parse("P2W");
+        }
+        catch(Exception e){
+
+        }
+    }
+
+    @Test
+    public void testParseAll(){
+    try {
+        Period p = Period.of(1, 1, 1);
+
+        Period all = p.parse("P1Y2M3W4D");
+
+    }
+    catch(Exception e) {
+    }
+
+    }
+
+    @Test
+    public void testelseParseDays()
+    {
+        try {
+            Period p = Period.of(1, 2, 2);
+            //Long Val = Long.MAX_VALUE;
+
+            Period Negative = p.parse("P2D");
+        }
+        catch(Exception e){
+
+        }
+    }
+
+    @Test
+    public void testelseParseMonths()
+    {
+        try {
+            Period p = Period.of(1, 2, 0);
+            //Long Val = Long.MAX_VALUE;
+
+            Period Negative = p.parse("P2M");
+        }
+        catch(Exception e){
+
+        }
+    }
+
+
+
+
+
 
 
     //No Branches in this Method,  code Coverage is complete
@@ -750,6 +839,13 @@ public class PeriodTest {
     }
 
 
+    @Test
+    public void testStub(){
+
+        //class stub implements Temporal{
+
+        }
+    }
 
 
 
@@ -757,4 +853,6 @@ public class PeriodTest {
 
 
 
-}
+
+
+
