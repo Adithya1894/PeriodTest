@@ -289,8 +289,8 @@ public class PeriodTest {
     public void testElseEquals()
     {
         Period p = Period.of(1,1,1);
-        ChronoPeriod p1 = Period.ZERO;
-        Assert.assertEquals(false,p.equals(String.valueOf(1)));
+        //ChronoPeriod p1 = Period.ZERO;
+        Assert.assertEquals(false,p.equals(p.getDays()));
 
     }
 
@@ -342,13 +342,36 @@ public class PeriodTest {
     @Test
     public void testMinusYears()
     {
-        Period p = Period.ZERO;
-        Period p1 = Period.ofMonths(12);
-        Period i = p1.minusYears(1);
+        Period p = Period.of(0,0,0);
 
-        p.minusYears(2);
+        p.minusYears(-100);
 
     }
+
+    //Test to check the if branch of MinusYears() Method
+    @Test
+    public void testIfMinusYears(){
+
+        Period p = Period.of(1,1,1);
+
+
+    try {
+        p.minusYears(Long.MIN_VALUE);
+        }
+    catch(ArithmeticException e)
+        {
+
+        }
+
+    }
+
+
+
+
+
+
+
+
 
     /**
      * Needs some code improvement
@@ -592,9 +615,13 @@ public class PeriodTest {
         Period NegativeYears = p2.parse("P-1Y1M");
 
         Period p1 = Period.ofDays(5);
-        Period days = p1.parse("P5D");
+        try {
+            Period days = p1.parse("PD");
+        }
+        catch(Exception e){
 
-        Assert.assertEquals(days,days);
+        }
+       // Assert.assertEquals(days,days);
 
 
     }
@@ -603,10 +630,10 @@ public class PeriodTest {
     public void testelseParse()
     {
        try {
-           Period p = Period.of(1, 1, 0);
+           Period p = Period.of(1, 2, 0);
            //Long Val = Long.MAX_VALUE;
 
-           Period Negative = p.parse("PsY1M");
+           Period Negative = p.parse("PY");
        }
        catch(Exception e){
 
