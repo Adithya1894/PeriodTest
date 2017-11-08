@@ -293,6 +293,36 @@ public class PeriodTest {
         Assert.assertEquals(false,p.equals(p.getDays()));
 
     }
+    //Hits the years branch of equals() Method
+    @Test
+    public void testEqualsall(){
+
+        Period p = Period.of(1,1,1);
+
+        Period a = Period.from(Period.of(0,1,1));
+        Assert.assertNotEquals(p,a);
+
+    }
+    //Hits the Months branch of equals() Method
+    @Test
+    public void testEqualsMonths(){
+
+        Period p = Period.of(1,1,1);
+
+        Period a = Period.from(Period.of(1,0,1));
+        Assert.assertNotEquals(p,a);
+
+    }
+    //Hits the Days branch of equals() Method.
+    @Test
+    public void testEqualsDays(){
+
+        Period p = Period.of(1,1,1);
+
+        Period a = Period.from(Period.of(1,1,0));
+        Assert.assertNotEquals(p,a);
+
+    }
 
 
 
