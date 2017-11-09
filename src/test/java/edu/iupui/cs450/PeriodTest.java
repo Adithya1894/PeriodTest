@@ -6,16 +6,13 @@ import sun.java2d.pipe.AAShapePipe;
 
 import java.time.DateTimeException;
 import java.time.LocalDate;
-import java.time.chrono.ChronoPeriod;
-import java.time.chrono.IsoChronology;
-import java.time.chrono.MinguoChronology;
-import java.time.chrono.MinguoDate;
-import java.time.format.DateTimeParseException;
-import java.time.temporal.ChronoUnit;
-import java.time.temporal.Temporal;
-import java.time.temporal.TemporalAmount;
-import java.time.temporal.TemporalUnit;
+import java.time.ZoneId;
+import java.time.chrono.*;
+import java.time.temporal.*;
 import java.util.*;
+
+import static java.util.concurrent.TimeUnit.MINUTES;
+//import java.time.chrono.MinguoChronology;
 
 public class PeriodTest {
 
@@ -84,8 +81,8 @@ public class PeriodTest {
     }
 
     @Test
-    public void testElseWithYears(){
-        Period p = Period.of(1,1,1);
+    public void testElseWithYears() {
+        Period p = Period.of(1, 1, 1);
         Period p1 = p.withYears(1);
     }
 
@@ -100,9 +97,9 @@ public class PeriodTest {
     }
 
     @Test
-    public void testElseOfWithmonths(){
+    public void testElseOfWithmonths() {
 
-        Period p = Period.of(1,1,1);
+        Period p = Period.of(1, 1, 1);
         Period p1 = p.withMonths(1);
 
     }
@@ -119,9 +116,9 @@ public class PeriodTest {
     }
 
     @Test
-    public void testElseWithDays(){
+    public void testElseWithDays() {
 
-        Period p = Period.of(1,1,1);
+        Period p = Period.of(1, 1, 1);
 
         Period p1 = p.withDays(1);
     }
@@ -184,18 +181,18 @@ public class PeriodTest {
 
     //Tests else branch of multipliedBy()
     @Test
-    public void testElseMultipliedBy(){
-        Period p = Period.of(0,0,0);
+    public void testElseMultipliedBy() {
+        Period p = Period.of(0, 0, 0);
 
         Period p1 = p.multipliedBy(0);
 
     }
 
     @Test
-    public void testElseScalarMultipliedBy(){
+    public void testElseScalarMultipliedBy() {
 
 
-        Period p = Period.of(1,1,1);
+        Period p = Period.of(1, 1, 1);
         Period p1 = p.multipliedBy(1);
 
     }
@@ -244,7 +241,7 @@ public class PeriodTest {
     }
 
     @Test
-    public void testMonthsIsNegative(){
+    public void testMonthsIsNegative() {
 
         Period p = Period.of(-2, 12, -2);
         Assert.assertEquals(true, p.isNegative());
@@ -262,8 +259,6 @@ public class PeriodTest {
     }
 
 
-
-
     /*@Test
     public void testgetUnits()
     {
@@ -278,64 +273,62 @@ public class PeriodTest {
     }*/
     //needs more improvement
     @Test
-    public void testIfEquals()
-    {
+    public void testIfEquals() {
 
-        Period p = Period.of(1,1,1);
+        Period p = Period.of(1, 1, 1);
 
-        Assert.assertEquals(false,p.equals(null));
-        Assert.assertEquals(true,p.equals(Period.of(1,1,1)));
+        Assert.assertEquals(false, p.equals(null));
+        Assert.assertEquals(true, p.equals(Period.of(1, 1, 1)));
 
     }
-
 
 
     @Test
-    public void testElseEquals()
-    {
-        Period p = Period.of(1,1,1);
+    public void testElseEquals() {
+        Period p = Period.of(1, 1, 1);
         //ChronoPeriod p1 = Period.ZERO;
-        Assert.assertEquals(false,p.equals(p.getDays()));
+        Assert.assertEquals(false, p.equals(p.getDays()));
 
     }
+
     //Hits the years branch of equals() Method
     @Test
-    public void testEqualsall(){
+    public void testEqualsall() {
 
-        Period p = Period.of(1,1,1);
+        Period p = Period.of(1, 1, 1);
 
-        Period a = Period.from(Period.of(0,1,1));
-        Assert.assertNotEquals(p,a);
+        Period a = Period.from(Period.of(0, 1, 1));
+        Assert.assertNotEquals(p, a);
 
     }
+
     //Hits the Months branch of equals() Method
     @Test
-    public void testEqualsMonths(){
+    public void testEqualsMonths() {
 
-        Period p = Period.of(1,1,1);
+        Period p = Period.of(1, 1, 1);
 
-        Period a = Period.from(Period.of(1,0,1));
-        Assert.assertNotEquals(p,a);
+        Period a = Period.from(Period.of(1, 0, 1));
+        Assert.assertNotEquals(p, a);
 
     }
+
     //Hits the Days branch of equals() Method.
     @Test
-    public void testEqualsDays(){
+    public void testEqualsDays() {
 
-        Period p = Period.of(1,1,1);
+        Period p = Period.of(1, 1, 1);
 
-        Period a = Period.from(Period.of(1,1,0));
-        Assert.assertNotEquals(p,a);
+        Period a = Period.from(Period.of(1, 1, 0));
+        Assert.assertNotEquals(p, a);
 
     }
-
 
 
     //needs improvement
     @Test
-    public void testNormalized()
-    {
-        Period p = Period.of(-2,2,2);
+    public void testNormalized() {
+        Period p = Period.of(-2, 2, 2);
         //Period negative = Period.of(-2,2,2);
         //long totalMonths = negative.toTotalMonths();
 
@@ -343,7 +336,7 @@ public class PeriodTest {
         long totalMonths = p.toTotalMonths();
         long splitYears = totalMonths / 12;
         int splitMonths = (int) (totalMonths % 12);
-        Assert.assertEquals(-22,totalMonths);
+        Assert.assertEquals(-22, totalMonths);
         //Assert.assertEquals(-1,splitYears);
         //Assert.assertEquals(2,splitMonths);
         //Assert.assertEquals(true,p.normalized());
@@ -351,33 +344,31 @@ public class PeriodTest {
 
 
     }
-    @Test
-    public void testElseNormalized(){
 
-        Period p = Period.of(1,2,2);
+    @Test
+    public void testElseNormalized() {
+
+        Period p = Period.of(1, 2, 2);
 
         p.normalized();
-
 
 
     }
 
     @Test
-    public void testNormalized3(){
-        Period p = Period.of(1,-1,0);
+    public void testNormalized3() {
+        Period p = Period.of(1, -1, 0);
         p.normalized();
 
     }
-
 
 
     /**
      * all the minus years, months, Days are to be implemented more clearly
      */
     @Test
-    public void testMinusYears()
-    {
-        Period p = Period.of(0,0,0);
+    public void testMinusYears() {
+        Period p = Period.of(0, 0, 0);
 
         p.minusYears(-100);
 
@@ -385,63 +376,32 @@ public class PeriodTest {
 
     //Test to check the if branch of MinusYears() Method
     @Test
-    public void testIfMinusYears(){
+    public void testIfMinusYears() {
 
-        Period p = Period.of(1,1,1);
+        Period p = Period.of(1, 1, 1);
 
 
-    try {
-        p.minusYears(Long.MIN_VALUE);
-        }
-    catch(ArithmeticException e)
-        {
+        try {
+            p.minusYears(Long.MIN_VALUE);
+        } catch (ArithmeticException e) {
 
         }
-
     }
 
-
-
-
-
-
-
-
-
-    /**
-     * Needs some code improvement
-
     @Test
-    public void testMinusElseYears(){
-
-        Period p = Period.of(Integer.MIN_VALUE,-1,-1);
-
-        //Period i = Period.ofYears(-10000000);
-
-            p.minusYears(Long.MIN_VALUE);
-
-    }*/
-
-
-
-
-
-    @Test
-    public void testMinusMonths()
-    {
+    public void testMinusMonths() {
         Period p = Period.ZERO;
         p.minusMonths(2);
     }
+
     @Test
-    public void testMinusDays()
-    {
+    public void testMinusDays() {
         Period p = Period.ZERO;
         p.minusDays(3);
     }
 
     @Test
-    public void testGet()
-    {
+    public void testGet() {
 
         Period y = Period.ofYears(1);
         //Period m = Period.ofMonths(1);
@@ -451,12 +411,12 @@ public class PeriodTest {
         Assert.assertEquals(0, y.get(ChronoUnit.DAYS));
 
     }
+
     //Tests the Days Unit
     @Test
-    public void testDaysGet()
-    {
+    public void testDaysGet() {
 
-        Period y = Period.of(1,1,1);
+        Period y = Period.of(1, 1, 1);
         //Period m = Period.ofMonths(1);
         //Period d = Period.ofDays(1);
         Assert.assertEquals(1, y.get(ChronoUnit.YEARS));
@@ -464,139 +424,159 @@ public class PeriodTest {
         try {
 
             Long p2 = y.get(ChronoUnit.WEEKS);
-        }
-        catch(Exception e){
+        } catch (Exception e) {
 
         }
     }
 
-
-
-
-
-
-
-
-
-
-
     //completed test case
     @Test
-    public void testPlus(){
-        Period p = Period.of(1,1,1);
+    public void testPlus() {
+        Period p = Period.of(1, 1, 1);
         Period addYears = p.plus(Period.ofYears(1));
         Period addMonths = p.plus(Period.ofMonths(1));
         Period addDays = p.plus(Period.ofDays(1));
 
-        Assert.assertEquals(addYears,addYears);
-        Assert.assertEquals(addMonths,addMonths);
-        Assert.assertEquals(addDays,addDays);
+        Assert.assertEquals(addYears, addYears);
+        Assert.assertEquals(addMonths, addMonths);
+        Assert.assertEquals(addDays, addDays);
 
     }
+
     //No branches, Test Completed
     @Test
-    public void testGetChronology()
-    {
+    public void testGetChronology() {
         Period p = Period.ZERO;
         IsoChronology is = p.getChronology();
         Assert.assertEquals(is, is);
 
     }
+
     //Missing the branch if totalMonths is not equal to zero
     @Test
-    public void testAddTo(){
+    public void testAddTo() {
 
-        Period p = Period.of(0,0,0);
-        Period p1 = Period.of(1,1,1);
+        Period p = Period.of(0, 0, 0);
+        Period p1 = Period.of(1, 1, 1);
 
         Temporal T = p.addTo(LocalDate.now());
         Temporal T1 = p1.addTo(LocalDate.now());
-        Assert.assertEquals(T,T);
-        Assert.assertEquals(T1,T1);
+        Assert.assertEquals(T, T);
+        Assert.assertEquals(T1, T1);
     }
 
 
     @Test
-    public void testNotZeroAddto(){
-        Period p = Period.of(1,0,1);
+    public void testNotZeroAddto() {
+        Period p = Period.of(1, 0, 1);
 
         Temporal t = p.addTo(LocalDate.now());
 
+
+        Temporal temporal = new Temporal() {
+            @Override
+            public boolean isSupported(TemporalUnit unit) {
+                return false;
+            }
+
+            @Override
+            public Temporal with(TemporalField field, long newValue) {
+                return null;
+            }
+
+            @Override
+            public Temporal plus(long amountToAdd, TemporalUnit unit) {
+                return null;
+            }
+
+            @Override
+            public long until(Temporal endExclusive, TemporalUnit unit) {
+                return 0;
+            }
+
+            @Override
+            public boolean isSupported(TemporalField field) {
+                return false;
+            }
+
+            @Override
+            public long getLong(TemporalField field) {
+                return 0;
+            }
+
+            @Override
+            public <R> R query(TemporalQuery<R> query) {
+                return (R) HijrahChronology.INSTANCE;
+            }
+        };
+
+
     }
-
-
 
 
     //Test to cover the totalMonths == 0 branch in the addTo() Method
     @Test
-    public void testTotZeroMonthsAddTo(){
+    public void testTotZeroMonthsAddTo() {
 
-        Period p = Period.of(-1,12,0);
+        Period p = Period.of(-1, 12, 0);
         //Period p1 = Period.of(1,1,1);
 
         Temporal T = p.addTo(LocalDate.now());
 
 
-
         //Temporal T1 = p1.addTo(LocalDate.now());
-        Assert.assertEquals(T,T);
+        Assert.assertEquals(T, T);
         //Assert.assertEquals(T1,T1);
     }
 
 
-
-
-
-
-
-
     //not covered all branches
     @Test
-    public void testSubtractFrom(){
+    public void testSubtractFrom() {
 
-        Period p = Period.of(0,0,0);
+        Period p = Period.of(0, 0, 0);
         //Period p1 = Period.of(1,1,1);
 
         Temporal T = p.subtractFrom(LocalDate.now());
         //Temporal T1 = p1.subtractFrom(LocalDate.now());
-        Assert.assertEquals(T,T);
+        Assert.assertEquals(T, T);
         //Assert.assertEquals(T1,T1);
     }
 
     //checks the not Zero condition
     @Test
-    public void testZeroSubtractFrom(){
+    public void testZeroSubtractFrom() {
 
-        Period p = Period.of(1,0,1);
+        Period p = Period.of(1, 0, 1);
         //Period p1 = Period.of(1,1,1);
 
         Temporal T = p.subtractFrom(LocalDate.now());
         //Temporal T1 = p1.subtractFrom(LocalDate.now());
-        Assert.assertEquals(T,T);
+        Assert.assertEquals(T, T);
         //Assert.assertEquals(T1,T1);
     }
 
 
     @Test
-    public void testZeroTotalmonthsSubtractFrom(){
-        Period p = Period.of(0,-1,0);
+    public void testZeroTotalmonthsSubtractFrom() {
+        Period p = Period.of(0, -1, 0);
         //Period p1 = Period.of(1,1,1);
 
-        Temporal T = p.subtractFrom(LocalDate.of(0,1,1));
+        Temporal T = p.subtractFrom(LocalDate.of(0, 1, 1));
         //Temporal T1 = p1.subtractFrom(LocalDate.now());
-        Assert.assertEquals(T,T);
-
+        Assert.assertEquals(T, T);
 
 
     }
+
     //This tests the total months is equal to zero branch
     @Test
-    public void testZeroIfSubtractFrom(){
+    public void testZeroIfSubtractFrom() {
 
-        Period p = Period.of(1,-12,0);
+        Period p = Period.of(1, -12, 0);
         //Period p1 = Period.of(1,1,1);
 
-        Temporal T = p.subtractFrom(LocalDate.of(0,1,23));
+        Temporal T = p.subtractFrom(LocalDate.of(0, 1, 23));
 
 
     }
@@ -605,7 +585,7 @@ public class PeriodTest {
      * This is not at all completed, needs to be implemented properly
      */
     @Test
-    public void testFrom(){
+    public void testFrom() {
 
 
         /*Period p = Period.from(Period.ofMonths(12));
@@ -616,20 +596,18 @@ public class PeriodTest {
         //ChronoPeriod p1  = p.from(ChronoPeriod.getUni);
 
 
-
-        Period p1 = Period.from(ChronoPeriod.between(LocalDate.now(), LocalDate.of(1994,3,12)));
+        Period p1 = Period.from(ChronoPeriod.between(LocalDate.now(), LocalDate.of(1994, 3, 12)));
 
         Period p2 = Period.from(Period.ofDays(12));
-
 
 
     }
 
     @Test
-    public void testElseFrom(){
-       // try {
-            Period p = Period.of(11,1,1);
-            Period p1 = p.from(Period.ofWeeks(2));
+    public void testElseFrom() {
+        // try {
+        Period p = Period.of(11, 1, 1);
+        Period p1 = p.from(Period.ofWeeks(2));
         //}
         //catch(Exception e)
         //{
@@ -641,7 +619,7 @@ public class PeriodTest {
      * This test case uses a stub for the TemporalAmount and this is to throw the exception for units not equal to supported units
      */
     @Test(expected = DateTimeException.class)
-    public void testInstanceChronoFrom(){
+    public void testInstanceChronoFrom() {
 
         TemporalAmount ta_obj = new TemporalAmount() {
             @Override
@@ -656,7 +634,7 @@ public class PeriodTest {
                 //lis.add(ChronoUnit.YEARS);
                 lis.add(ChronoUnit.DECADES);
                 return lis;
-             }
+            }
 
             @Override
             public Temporal addTo(Temporal temporal) {
@@ -672,56 +650,50 @@ public class PeriodTest {
     }
 
     @Test(expected = DateTimeException.class)
-    public void testNotIsoChronologyofFrom(){
+    public void testNotIsoChronologyofFrom() {
         //LocalDateTime date = LocalDateTime.of(2013, Month.JULY, 20, 19, 30);
-        Period p = Period.of(1994,1,5);
+        Period p = Period.of(1994, 1, 5);
 
-        Period.from(MinguoChronology.INSTANCE.period(1994,1,5));
+        Period.from(MinguoChronology.INSTANCE.period(1994, 1, 5));
 
 
     }
-
-
-
-
 
 
     /**
      * Test case to check the Parse Method
      */
     @Test
-    public void testParse(){
+    public void testParse() {
 
-        Period p = Period.of(-2,-2,0);
+        Period p = Period.of(-2, -2, 0);
         Period Negative = p.parse("-P2Y2M");
 
-        Period p2 = Period.of(-1,1,0);
+        Period p2 = Period.of(-1, 1, 0);
         Period NegativeYears = p2.parse("P-1Y1M");
 
         Period p1 = Period.ofDays(5);
         try {
             Period days = p1.parse("PD");
-        }
-        catch(Exception e){
+        } catch (Exception e) {
 
         }
-       // Assert.assertEquals(days,days);
+        // Assert.assertEquals(days,days);
 
 
     }
+
     //Tests the other branches of Parse()
     @Test
-    public void testelseParse()
-    {
-       try {
-           Period p = Period.of(1, 2, 0);
-           //Long Val = Long.MAX_VALUE;
+    public void testelseParse() {
+        try {
+            Period p = Period.of(1, 2, 0);
+            //Long Val = Long.MAX_VALUE;
 
-           Period Negative = p.parse("P2Y");
-       }
-       catch(Exception e){
+            Period Negative = p.parse("P2Y");
+        } catch (Exception e) {
 
-    }
+        }
     }
 
     @Test
@@ -733,114 +705,100 @@ public class PeriodTest {
             //Long Val = Long.MAX_VALUE;
 
             Period Negative = p.parse("P");
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
         }
 
 
     }
 
     @Test
-    public void testNullParseMonth(){
-        try{
-            Period p = Period.of(1,1,1);
-            Period big  = p.parse("-p-214748365034");
+    public void testNullParseMonth() {
+        try {
+            Period p = Period.of(1, 1, 1);
+            Period big = p.parse("-p-214748365034");
 
-        }
-        catch(Exception e){
+        } catch (Exception e) {
 
         }
     }
 
     @Test
-    public void testelseParseWeek()
-    {
+    public void testelseParseWeek() {
         try {
             Period p = Period.of(1, 2, 0);
             //Long Val = Long.MAX_VALUE;
 
             Period Negative = p.parse("P2W");
-        }
-        catch(Exception e){
+        } catch (Exception e) {
 
         }
     }
 
     @Test
-    public void testParseAll(){
-    try {
-        Period p = Period.of(1, 1, 1);
+    public void testParseAll() {
+        try {
+            Period p = Period.of(1, 1, 1);
 
-        Period all = p.parse("P1Y2M3W4D");
+            Period all = p.parse("P1Y2M3W4D");
 
-    }
-    catch(Exception e) {
-    }
+        } catch (Exception e) {
+        }
 
     }
 
     @Test
-    public void testelseParseDays()
-    {
+    public void testelseParseDays() {
         try {
             Period p = Period.of(1, 2, 2);
             //Long Val = Long.MAX_VALUE;
 
             Period Negative = p.parse("P2D");
-        }
-        catch(Exception e){
+        } catch (Exception e) {
 
         }
     }
 
     @Test
-    public void testelseParseMonths()
-    {
+    public void testelseParseMonths() {
         try {
             Period p = Period.of(1, 2, 0);
             //Long Val = Long.MAX_VALUE;
 
             Period Negative = p.parse("P2M");
-        }
-        catch(Exception e){
+        } catch (Exception e) {
 
         }
     }
-
-
-
-
-
 
 
     //No Branches in this Method,  code Coverage is complete
     @Test
-    public void testMinus(){
-        Period p = Period.of(1,1,1);
+    public void testMinus() {
+        Period p = Period.of(1, 1, 1);
         Period minusYears = p.minus(Period.ofYears(1));
         Period minusMonths = p.minus(Period.ofMonths(1));
         Period minusDays = p.minus(Period.ofDays(1));
 
-        Assert.assertEquals(minusYears,minusYears);
-        Assert.assertEquals(minusMonths,minusMonths);
-        Assert.assertEquals(minusDays,minusDays);
+        Assert.assertEquals(minusYears, minusYears);
+        Assert.assertEquals(minusMonths, minusMonths);
+        Assert.assertEquals(minusDays, minusDays);
 
     }
+
     //Test case to check the toString Method.()Coveing
     @Test
-    public void testToString()
-    {
-        Period p = Period.of(1,1,1);
+    public void testToString() {
+        Period p = Period.of(1, 1, 1);
 
         String p1 = p.toString();
 
 
     }
+
     //Tests the toString() when years are ZERO
     @Test
-    public void testZeroYearsToString()
-    {
-        Period p = Period.of(0,1,1);
+    public void testZeroYearsToString() {
+        Period p = Period.of(0, 1, 1);
 
         String p1 = p.toString();
 
@@ -848,11 +806,11 @@ public class PeriodTest {
 
 
     }
+
     //Tests the toString() When MOnths are Zero
     @Test
-    public void testZeroMonthsToString()
-    {
-        Period p = Period.of(1,0,1);
+    public void testZeroMonthsToString() {
+        Period p = Period.of(1, 0, 1);
 
         String p1 = p.toString();
 
@@ -860,11 +818,11 @@ public class PeriodTest {
 
 
     }
+
     //Tests the toString() when Days are Zero
     @Test
-    public void testZeroDaysToString()
-    {
-        Period p = Period.of(1,1,0);
+    public void testZeroDaysToString() {
+        Period p = Period.of(1, 1, 0);
 
         String p1 = p.toString();
 
@@ -874,34 +832,210 @@ public class PeriodTest {
     }
 
     @Test
-    public void testZeroTOString()
-    {
-        Period p = Period.of(0,0,0);
+    public void testZeroTOString() {
+        Period p = Period.of(0, 0, 0);
         String p1 = p.toString();
     }
 
     @Test
-    public void testGetUnits(){
+    public void testGetUnits() {
 
-        Period p = Period.of(1,1,1);
+        Period p = Period.of(1, 1, 1);
 
         p.getUnits();
 
 
+    }
+
+
+    @Test(expected = DateTimeException.class)
+    public void testStubValidate() {
+
+
+        class StubValidteChrono implements Temporal{
+
+            @Override
+            public boolean isSupported(TemporalField field) {
+                return false;
+            }
+
+            @Override
+            public long getLong(TemporalField field) {
+                return 0;
+            }
+
+            @Override
+            public <R> R query(TemporalQuery<R> query) {
+
+                if(query == TemporalQueries.chronology())
+                    return (R) ThaiBuddhistChronology.INSTANCE;
+                else if(query == TemporalQueries.zoneId() || query == TemporalQueries.precision())
+                    return null;
+
+//Assert.assertNotEquals(IsoChronology.INSTANCE, HijrahChronology.INSTANCE);
+                return query.queryFrom(this);
+
+
+
+            }
+
+            @Override
+            public boolean isSupported(TemporalUnit unit) {
+                return false;
+            }
+
+            @Override
+            public Temporal with(TemporalField field, long newValue) {
+                return null;
+            }
+
+            @Override
+            public Temporal plus(long amountToAdd, TemporalUnit unit) {
+                return null;
+            }
+
+            @Override
+            public long until(Temporal endExclusive, TemporalUnit unit) {
+                return 0;
+            }
+        }
+
+        StubValidteChrono svc = new StubValidteChrono();
+        Period.ZERO.subtractFrom(svc);
+
 
     }
 
 
     @Test
-    public void testStub(){
+    public void testValidateNullChrono(){
 
-        //class stub implements Temporal{
+        class stubofTemporal implements Temporal{
 
+
+            @Override
+            public boolean isSupported(TemporalField field) {
+                return false;
+            }
+
+            @Override
+            public ValueRange range(TemporalField field) {
+                return null;
+            }
+
+            @Override
+            public int get(TemporalField field) {
+                return 0;
+            }
+
+            @Override
+            public long getLong(TemporalField field) {
+                return 0;
+            }
+
+            @Override
+            public <R> R query(TemporalQuery<R> query) {
+                return (R) null;
+            }
+
+            @Override
+            public boolean isSupported(TemporalUnit unit) {
+                return false;
+            }
+
+            @Override
+            public Temporal with(TemporalField field, long newValue) {
+                return null;
+            }
+
+            @Override
+            public Temporal plus(long amountToAdd, TemporalUnit unit) {
+                return null;
+            }
+
+            @Override
+            public long until(Temporal endExclusive, TemporalUnit unit) {
+                return 0;
+            }
         }
+
+        stubofTemporal svc = new stubofTemporal();
+        Period.ZERO.subtractFrom(svc);
+    }
+
+
+    @Test
+    public void testNotNullIsoValidateChrono(){
+
+
+        class stub implements Temporal{
+
+
+            @Override
+            public boolean isSupported(TemporalField field) {
+                return false;
+            }
+
+            @Override
+            public ValueRange range(TemporalField field) {
+                return null;
+            }
+
+            @Override
+            public int get(TemporalField field) {
+                return 0;
+            }
+
+            @Override
+            public long getLong(TemporalField field) {
+                return 0;
+            }
+
+            @Override
+            public <R> R query(TemporalQuery<R> query) {
+
+                if(query == TemporalQueries.chronology())
+                    return (R) IsoChronology.INSTANCE;
+                else if(query == TemporalQueries.zoneId() || query == TemporalQueries.precision())
+                    return null;
+
+//Assert.assertNotEquals(IsoChronology.INSTANCE, Hijrah
+                return null;
+
+            }
+
+            @Override
+            public boolean isSupported(TemporalUnit unit) {
+                return false;
+            }
+
+            @Override
+            public Temporal with(TemporalField field, long newValue) {
+                return null;
+            }
+
+            @Override
+            public Temporal plus(long amountToAdd, TemporalUnit unit) {
+                return null;
+            }
+
+            @Override
+            public long until(Temporal endExclusive, TemporalUnit unit) {
+                return 0;
+            }
+        }
+
+        stub svc = new stub();
+        Period.ZERO.subtractFrom(svc);
+
     }
 
 
 
+
+
+
+}
 
 
 
