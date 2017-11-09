@@ -15,7 +15,9 @@ import static java.util.concurrent.TimeUnit.MINUTES;
 //import java.time.chrono.MinguoChronology;
 
 public class PeriodTest {
-
+    /**
+     * Tests the ofYears() Method of the Period Class
+     */
     @Test
     public void testOfYears() {
         Period p = Period.ofYears(5);
@@ -25,6 +27,9 @@ public class PeriodTest {
         Assert.assertEquals(0, p.getDays());
     }
 
+    /**
+     * Tests the ofMonths() Method of the Period class
+     */
     @Test
     public void testOfMonths() {
         Period p = Period.ofMonths(5);
@@ -34,6 +39,9 @@ public class PeriodTest {
         Assert.assertEquals(0, p.getDays());
     }
 
+    /**
+     * Tests the ofWeeks() Method of the Period class
+     */
     @Test
     public void testOfWeeks() {
         Period p = Period.ofWeeks(5);
@@ -43,6 +51,9 @@ public class PeriodTest {
         Assert.assertEquals(35, p.getDays());
     }
 
+    /**
+     * Tests the ofDays() Method of the Period class
+     */
     @Test
     public void testOfDays() {
         Period p = Period.ofDays(7);
@@ -52,6 +63,9 @@ public class PeriodTest {
         Assert.assertEquals(7, p.getDays());
     }
 
+    /**
+     * Tests the of() Method of the Period class
+     */
     @Test
     public void testOf() {
         Period p = Period.of(5, 5, 7);
@@ -61,6 +75,9 @@ public class PeriodTest {
         Assert.assertEquals(7, p.getDays());
     }
 
+    /**
+     * Tests the if branch of the ofCreate() Method
+     */
     @Test
     public void testIfConditionOfCreate() {
         Period p = Period.of(0, 0, 0);
@@ -70,6 +87,9 @@ public class PeriodTest {
         Assert.assertEquals(0, p.getDays());
     }
 
+    /**
+     * Tests the If condition of the withYears() Method
+     */
     @Test
     public void testIfOfWithYears() {
         Period P = Period.ZERO.withYears(5);
@@ -80,12 +100,18 @@ public class PeriodTest {
 
     }
 
+    /**
+     * Tests the else condition of the withYears() Method
+     */
     @Test
     public void testElseWithYears() {
         Period p = Period.of(1, 1, 1);
         Period p1 = p.withYears(1);
     }
 
+    /**
+     * Tests the if condition of withMonths() Method
+     */
     @Test
     public void testIfOfWithMonths() {
         Period P = Period.ZERO.withMonths(5);
@@ -96,6 +122,9 @@ public class PeriodTest {
 
     }
 
+    /**
+     * Tests the else condition of withMonths() Method
+     */
     @Test
     public void testElseOfWithmonths() {
 
@@ -104,7 +133,9 @@ public class PeriodTest {
 
     }
 
-
+    /**
+     * Tests the if Condition of withDays() Method
+     */
     @Test
     public void testIfOfWithDays() {
         Period P = Period.ZERO.withDays(5);
@@ -115,6 +146,9 @@ public class PeriodTest {
 
     }
 
+    /**
+     * Tests the Else condition of withDays() Method
+     */
     @Test
     public void testElseWithDays() {
 
@@ -123,6 +157,9 @@ public class PeriodTest {
         Period p1 = p.withDays(1);
     }
 
+    /**
+     * Tests the plusYears() Method
+     */
     @Test
     public void testPlusYears() {
         Period P = Period.ZERO.plusYears(0);
@@ -133,6 +170,9 @@ public class PeriodTest {
 
     }
 
+    /**
+     * Tests the plusMonths() Method
+     */
     @Test
     public void testPlusMonths() {
         Period p = Period.ZERO.plusMonths(0);
@@ -143,6 +183,9 @@ public class PeriodTest {
 
     }
 
+    /**
+     * Tests the plusDays() Method
+     */
     @Test
     public void testPlusDays() {
         Period p = Period.ZERO.plusDays(0);
@@ -152,6 +195,9 @@ public class PeriodTest {
 
     }
 
+    /**
+     * Tests the negated() Method
+     */
     @Test
     public void testNegated() {
         Period p = Period.ZERO.negated();
@@ -160,8 +206,11 @@ public class PeriodTest {
         Assert.assertEquals(0, p.getDays() * -1);
     }
 
+    /**
+     *  Tests the multipliedBy() Method
+     */
     @Test
-    //Needs to be Implemented properly
+
     public void testMultipliedBy() {
 
 
@@ -169,17 +218,11 @@ public class PeriodTest {
 
 
         Period p = Y.multipliedBy(10);
-        //Period M = Period.ofMonths(5);
-        //Period D = Period.ofDays(5);
-
-
-        //Assert.assertEquals(100, Y.getYears() * 10);
-        //Assert.assertEquals(100, Y.getMonths() * 10);
-        //Assert.assertEquals(100, Y.getDays() * 10);
-
     }
 
-    //Tests else branch of multipliedBy()
+    /**
+     * Tests else branch of multipliedBy()
+     */
     @Test
     public void testElseMultipliedBy() {
         Period p = Period.of(0, 0, 0);
@@ -188,6 +231,9 @@ public class PeriodTest {
 
     }
 
+    /**
+     * Tests the MultipliedBy() method when Scalar == 1
+     */
     @Test
     public void testElseScalarMultipliedBy() {
 
@@ -197,6 +243,9 @@ public class PeriodTest {
 
     }
 
+    /**
+     * Tests the toTotalMonths() Method
+     */
     @Test
     public void testToTotalMonths() {
         Period p = Period.of(10, 10, 10);
@@ -207,6 +256,9 @@ public class PeriodTest {
 
     }
 
+    /**
+     * tests the isZero() Method
+     */
     @Test
     public void testIsZero() {
         Period p = Period.of(0, 0, 0);
@@ -214,6 +266,9 @@ public class PeriodTest {
         Assert.assertEquals(true, p.isZero());
     }
 
+    /**
+     *  Tests the isZero() Method when it is not zero
+     */
     @Test
     public void testIsNotZero() {
         Period p = Period.of(12, 12, 12);
@@ -221,6 +276,10 @@ public class PeriodTest {
         Assert.assertEquals(false, p.isZero());
     }
 
+    /**
+     * Tests the isNegative Method when all the entities are positive
+     * Returns False
+     */
     @Test
     public void testIsNegative() {
         Period p = Period.of(10, 10, 10);
@@ -230,7 +289,9 @@ public class PeriodTest {
 
     }
 
-
+    /**
+     * Tests the isNegative Method When Years are Positive
+     */
     @Test
     public void testYearsIsNegative() {
         Period p = Period.of(10, -2, -2);
@@ -240,6 +301,9 @@ public class PeriodTest {
 
     }
 
+    /**
+     * Tests the isNegative() Method when Months are positive
+     */
     @Test
     public void testMonthsIsNegative() {
 
@@ -249,6 +313,9 @@ public class PeriodTest {
 
     }
 
+    /**
+     * Tests the isNegative() Method when days are negative
+     */
     @Test
     public void testDaysIsNegative() {
         Period p = Period.of(10, 10, -2);
@@ -258,20 +325,9 @@ public class PeriodTest {
 
     }
 
-
-    /*@Test
-    public void testgetUnits()
-    {
-        //Period p = Period.ZERO.getUnits();
-        ArrayList<String> expResult = new ArrayList<>();
-        expResult.add("Years");
-        expResult.add("Months");
-        expResult.add("Days");
-        Period p = Period.of(10, 10, 10);
-        Assert.assertEquals(expResult, p.getUnits());
-
-    }*/
-    //needs more improvement
+    /**
+     * Tests the if Branch of equals() Method
+     */
     @Test
     public void testIfEquals() {
 
@@ -282,7 +338,9 @@ public class PeriodTest {
 
     }
 
-
+    /**
+     * Tests the first Else branch of Equals() Method
+     */
     @Test
     public void testElseEquals() {
         Period p = Period.of(1, 1, 1);
@@ -291,7 +349,10 @@ public class PeriodTest {
 
     }
 
-    //Hits the years branch of equals() Method
+    /**
+     * Hits the years branch of equals() Method
+     */
+
     @Test
     public void testEqualsall() {
 
@@ -302,7 +363,9 @@ public class PeriodTest {
 
     }
 
-    //Hits the Months branch of equals() Method
+    /**
+     * Hits the Months branch of equals() Method
+     */
     @Test
     public void testEqualsMonths() {
 
@@ -313,7 +376,9 @@ public class PeriodTest {
 
     }
 
-    //Hits the Days branch of equals() Method.
+    /**
+     * Hits the Days branch of equals() Method.
+     */
     @Test
     public void testEqualsDays() {
 
@@ -325,7 +390,9 @@ public class PeriodTest {
     }
 
 
-    //needs improvement
+    /**
+     * Tests the Normalized() Method
+     */
     @Test
     public void testNormalized() {
         Period p = Period.of(-2, 2, 2);
@@ -337,14 +404,14 @@ public class PeriodTest {
         long splitYears = totalMonths / 12;
         int splitMonths = (int) (totalMonths % 12);
         Assert.assertEquals(-22, totalMonths);
-        //Assert.assertEquals(-1,splitYears);
-        //Assert.assertEquals(2,splitMonths);
-        //Assert.assertEquals(true,p.normalized());
         p.normalized();
 
 
     }
 
+    /**
+     * Tests the Else Branch of normalized() Method
+     */
     @Test
     public void testElseNormalized() {
 
@@ -364,7 +431,7 @@ public class PeriodTest {
 
 
     /**
-     * all the minus years, months, Days are to be implemented more clearly
+     * Hits the years not equal to Long.MIN_VaLUE branch
      */
     @Test
     public void testMinusYears() {
@@ -388,31 +455,41 @@ public class PeriodTest {
         }
     }
 
+    /**
+     * Hits the Months not equal to Long.MIN_VaLUE branch
+     */
     @Test
     public void testMinusMonths() {
         Period p = Period.ZERO;
         p.minusMonths(2);
     }
 
+    /**
+     * Hits the Days not equal to Long.MIN_VaLUE branch
+     */
     @Test
     public void testMinusDays() {
         Period p = Period.ZERO;
         p.minusDays(3);
     }
 
+    /**
+     * Tests the get() Method
+     */
     @Test
     public void testGet() {
 
         Period y = Period.ofYears(1);
-        //Period m = Period.ofMonths(1);
-        //Period d = Period.ofDays(1);
         Assert.assertEquals(1, y.get(ChronoUnit.YEARS));
         Assert.assertEquals(0, y.get(ChronoUnit.MONTHS));
         Assert.assertEquals(0, y.get(ChronoUnit.DAYS));
 
     }
 
-    //Tests the Days Unit
+    /**
+     * Tests the DaysGet() Method
+     */
+
     @Test
     public void testDaysGet() {
 
@@ -429,7 +506,9 @@ public class PeriodTest {
         }
     }
 
-    //completed test case
+    /**
+     * Tests the Plus() Metohd
+     */
     @Test
     public void testPlus() {
         Period p = Period.of(1, 1, 1);
@@ -443,7 +522,9 @@ public class PeriodTest {
 
     }
 
-    //No branches, Test Completed
+    /**
+     * Tests the getChronology() Method, No branches present
+     */
     @Test
     public void testGetChronology() {
         Period p = Period.ZERO;
@@ -465,7 +546,10 @@ public class PeriodTest {
         Assert.assertEquals(T1, T1);
     }
 
-
+    /**
+     * Created a stub to cover one of the four branches in Private validateChrono Method
+     * this covers the branch when temporalChrono != null and isoChronology.INSTANCE.equals(temporalChrono) == false branch
+     */
     @Test
     public void testNotZeroAddto() {
         Period p = Period.of(1, 0, 1);
@@ -514,7 +598,9 @@ public class PeriodTest {
     }
 
 
-    //Test to cover the totalMonths == 0 branch in the addTo() Method
+    /**
+     * Test to cover the totalMonths == 0 branch in the addTo() Method
+     */
     @Test
     public void testTotZeroMonthsAddTo() {
 
@@ -530,7 +616,9 @@ public class PeriodTest {
     }
 
 
-    //not covered all branches
+    /**
+     * Test case to cover the subtractFrom() Method
+     */
     @Test
     public void testSubtractFrom() {
 
@@ -543,7 +631,9 @@ public class PeriodTest {
         //Assert.assertEquals(T1,T1);
     }
 
-    //checks the not Zero condition
+    /**
+     * Test case to check the condition of totalMonths!= zero
+     */
     @Test
     public void testZeroSubtractFrom() {
 
@@ -569,7 +659,9 @@ public class PeriodTest {
 
     }
 
-    //This tests the total months is equal to zero branch
+    /**
+     * This tests the total months is equal to zero branch
+     */
     @Test
     public void testZeroIfSubtractFrom() {
 
@@ -582,19 +674,15 @@ public class PeriodTest {
     }
 
     /**
-     * This is not at all completed, needs to be implemented properly
+     * Tests the From() Method
      */
     @Test
     public void testFrom() {
 
 
-        /*Period p = Period.from(Period.ofMonths(12));
-        ChronoPeriod p1  = p.from(Period.ofDays(11));
-        */
+
 
         Period p = Period.from(Period.ofMonths(12));
-        //ChronoPeriod p1  = p.from(ChronoPeriod.getUni);
-
 
         Period p1 = Period.from(ChronoPeriod.between(LocalDate.now(), LocalDate.of(1994, 3, 12)));
 
@@ -603,16 +691,15 @@ public class PeriodTest {
 
     }
 
+    /**
+     * Tests the Else Part of the from() Method
+     */
     @Test
     public void testElseFrom() {
         // try {
         Period p = Period.of(11, 1, 1);
         Period p1 = p.from(Period.ofWeeks(2));
-        //}
-        //catch(Exception e)
-        //{
 
-        //}
     }
 
     /**
@@ -683,7 +770,9 @@ public class PeriodTest {
 
     }
 
-    //Tests the other branches of Parse()
+    /**
+     * Tests the other branches of Parse()
+     */
     @Test
     public void testelseParse() {
         try {
@@ -696,6 +785,9 @@ public class PeriodTest {
         }
     }
 
+    /**
+     * Tests the Null branches of the parse() Method
+     */
     @Test
     public void testNullParse() {
 
@@ -711,6 +803,9 @@ public class PeriodTest {
 
     }
 
+    /**
+     * tests the parse() Method to throw an integer exception
+     */
     @Test
     public void testNullParseMonth() {
         try {
@@ -722,6 +817,9 @@ public class PeriodTest {
         }
     }
 
+    /**
+     * tests the parse() method when others are null values except weeks
+     */
     @Test
     public void testelseParseWeek() {
         try {
@@ -734,6 +832,9 @@ public class PeriodTest {
         }
     }
 
+    /**
+     * Tests the parse() method when all the values are present
+     */
     @Test
     public void testParseAll() {
         try {
@@ -746,6 +847,9 @@ public class PeriodTest {
 
     }
 
+    /**
+     * tests the parse() Method when other values are equal to null except days
+     */
     @Test
     public void testelseParseDays() {
         try {
@@ -758,6 +862,9 @@ public class PeriodTest {
         }
     }
 
+    /**
+     * Tests the parse() method when Months!= null
+     */
     @Test
     public void testelseParseMonths() {
         try {
@@ -771,7 +878,9 @@ public class PeriodTest {
     }
 
 
-    //No Branches in this Method,  code Coverage is complete
+    /**
+     * No Branches in this Method,  code Coverage is complete
+     */
     @Test
     public void testMinus() {
         Period p = Period.of(1, 1, 1);
@@ -785,7 +894,9 @@ public class PeriodTest {
 
     }
 
-    //Test case to check the toString Method.()Coveing
+    /**
+     * Test case to check the toString Method.()Coveing
+     */
     @Test
     public void testToString() {
         Period p = Period.of(1, 1, 1);
@@ -795,7 +906,9 @@ public class PeriodTest {
 
     }
 
-    //Tests the toString() when years are ZERO
+    /**
+     * Tests the toString() when years are ZERO
+     */
     @Test
     public void testZeroYearsToString() {
         Period p = Period.of(0, 1, 1);
@@ -807,7 +920,9 @@ public class PeriodTest {
 
     }
 
-    //Tests the toString() When MOnths are Zero
+    /**
+     * Tests the toString() When MOnths are Zero
+     */
     @Test
     public void testZeroMonthsToString() {
         Period p = Period.of(1, 0, 1);
@@ -819,7 +934,9 @@ public class PeriodTest {
 
     }
 
-    //Tests the toString() when Days are Zero
+    /**
+     * Tests the toString() when Days are Zero
+     */
     @Test
     public void testZeroDaysToString() {
         Period p = Period.of(1, 1, 0);
@@ -847,7 +964,9 @@ public class PeriodTest {
 
     }
 
-
+    /**
+     * Created a stub of the Temporal interface to make the ValidateChrono Throw an exception
+     */
     @Test(expected = DateTimeException.class)
     public void testStubValidate() {
 
@@ -872,7 +991,6 @@ public class PeriodTest {
                 else if(query == TemporalQueries.zoneId() || query == TemporalQueries.precision())
                     return null;
 
-//Assert.assertNotEquals(IsoChronology.INSTANCE, HijrahChronology.INSTANCE);
                 return query.queryFrom(this);
 
 
@@ -906,7 +1024,9 @@ public class PeriodTest {
 
     }
 
-
+    /**
+     * Created a stub to make the query() method return a null to cover the null branch in validateChrono
+     */
     @Test
     public void testValidateNullChrono(){
 
@@ -963,7 +1083,9 @@ public class PeriodTest {
         Period.ZERO.subtractFrom(svc);
     }
 
-
+    /**
+     * Created a stub for Temporal Interface to make the query() Method return an Instance of IsoChronology
+     */
     @Test
     public void testNotNullIsoValidateChrono(){
 
@@ -999,7 +1121,6 @@ public class PeriodTest {
                 else if(query == TemporalQueries.zoneId() || query == TemporalQueries.precision())
                     return null;
 
-//Assert.assertNotEquals(IsoChronology.INSTANCE, Hijrah
                 return null;
 
             }
