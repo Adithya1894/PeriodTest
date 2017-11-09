@@ -4,12 +4,16 @@ import org.junit.Assert;
 import org.junit.Test;
 import sun.java2d.pipe.AAShapePipe;
 
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.chrono.ChronoPeriod;
 import java.time.chrono.IsoChronology;
+import java.time.chrono.MinguoChronology;
+import java.time.chrono.MinguoDate;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.Temporal;
+import java.time.temporal.TemporalAmount;
 import java.time.temporal.TemporalUnit;
 import java.util.*;
 
@@ -634,7 +638,56 @@ public class PeriodTest {
     }
 
     /**
-     * Need to write code to catch Exceptions and More
+     * This test case uses a stub for the TemporalAmount and this is to throw the exception for units not equal to supported units
+     */
+    @Test(expected = DateTimeException.class)
+    public void testInstanceChronoFrom(){
+
+        TemporalAmount ta_obj = new TemporalAmount() {
+            @Override
+            public long get(TemporalUnit unit) {
+                return 0;
+            }
+
+            @Override
+            public List<TemporalUnit> getUnits() {
+                //return null;
+                List<TemporalUnit> lis = new ArrayList<>();
+                //lis.add(ChronoUnit.YEARS);
+                lis.add(ChronoUnit.DECADES);
+                return lis;
+             }
+
+            @Override
+            public Temporal addTo(Temporal temporal) {
+                return null;
+            }
+
+            @Override
+            public Temporal subtractFrom(Temporal temporal) {
+                return null;
+            }
+        };
+        Period.from(ta_obj);
+    }
+
+    @Test(expected = DateTimeException.class)
+    public void testNotIsoChronologyofFrom(){
+        //LocalDateTime date = LocalDateTime.of(2013, Month.JULY, 20, 19, 30);
+        Period p = Period.of(1994,1,5);
+
+        Period.from(MinguoChronology.INSTANCE.period(1994,1,5));
+
+
+    }
+
+
+
+
+
+
+    /**
+     * Test case to check the Parse Method
      */
     @Test
     public void testParse(){
