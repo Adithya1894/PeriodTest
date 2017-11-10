@@ -2,17 +2,12 @@ package edu.iupui.cs450;
 
 import org.junit.Assert;
 import org.junit.Test;
-import sun.java2d.pipe.AAShapePipe;
-
 import java.time.DateTimeException;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.time.chrono.*;
 import java.time.temporal.*;
 import java.util.*;
 
-import static java.util.concurrent.TimeUnit.MINUTES;
-//import java.time.chrono.MinguoChronology;
 
 public class PeriodTest {
     /**
@@ -1154,7 +1149,7 @@ public class PeriodTest {
 
 
 
-
+    //All Tests passed
 
 }
 
