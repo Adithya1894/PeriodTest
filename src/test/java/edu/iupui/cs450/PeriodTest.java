@@ -308,6 +308,13 @@ public class PeriodTest {
     //this test passes
     }
 
+    @Test
+    public void testMonthsIsPositive(){
+
+        Period p = Period.of(1,1,1);
+        Assert.assertEquals(p, Period.of(1,1,1));
+    }
+
     /**
      * Tests the isNegative() Method when days are negative
      */
