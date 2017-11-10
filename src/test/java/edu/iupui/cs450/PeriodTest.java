@@ -305,7 +305,7 @@ public class PeriodTest {
         Period p = Period.of(-2, 12, -2);
         Assert.assertEquals(true, p.isNegative());
 
-
+    //this test passes
     }
 
     /**
