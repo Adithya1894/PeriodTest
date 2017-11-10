@@ -972,7 +972,9 @@ public class PeriodTest {
     @Test(expected = DateTimeException.class)
     public void testStubValidate() {
 
-
+        /**
+         * Stub class which implements the Temporal Interface and overrides the Query() Method which returns the INSTANCE of ThaiBuddhistChronology
+         */
         class StubValidteChrono implements Temporal{
 
             @Override
