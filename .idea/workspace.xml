@@ -1,36 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="06f314f9-2319-40d4-90b5-27548abc69e5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tmp/expandedArchives/org.jacoco.agent-0.7.1.201405082137.jar_3hibgkhhabhjgtfljiu0t2zv1/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tmp/expandedArchives/org.jacoco.agent-0.7.1.201405082137.jar_3hibgkhhabhjgtfljiu0t2zv1/META-INF/MTNMINDS.RSA" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tmp/expandedArchives/org.jacoco.agent-0.7.1.201405082137.jar_3hibgkhhabhjgtfljiu0t2zv1/META-INF/MTNMINDS.SF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tmp/expandedArchives/org.jacoco.agent-0.7.1.201405082137.jar_3hibgkhhabhjgtfljiu0t2zv1/META-INF/maven/org.jacoco/org.jacoco.agent/pom.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tmp/expandedArchives/org.jacoco.agent-0.7.1.201405082137.jar_3hibgkhhabhjgtfljiu0t2zv1/META-INF/maven/org.jacoco/org.jacoco.agent/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tmp/expandedArchives/org.jacoco.agent-0.7.1.201405082137.jar_3hibgkhhabhjgtfljiu0t2zv1/about.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tmp/expandedArchives/org.jacoco.agent-0.7.1.201405082137.jar_3hibgkhhabhjgtfljiu0t2zv1/jacocoagent.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/tmp/expandedArchives/org.jacoco.agent-0.7.1.201405082137.jar_3hibgkhhabhjgtfljiu0t2zv1/org/jacoco/agent/AgentJar.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.7/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.7/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.7/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.7/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.7/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.7/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.7/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.7/taskArtifacts/outputFileStates.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.7/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.7/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/edu/iupui/cs450/PeriodTest.class" afterPath="$PROJECT_DIR$/build/classes/test/edu/iupui/cs450/PeriodTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/jacoco/test.exec" afterPath="$PROJECT_DIR$/build/jacoco/test.exec" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test-results/binary/test/results.bin" afterPath="$PROJECT_DIR$/build/test-results/binary/test/results.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/.sessions.html" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/.sessions.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/edu.iupui.cs450/Period.html" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/edu.iupui.cs450/Period.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/edu.iupui.cs450/Period.java.html" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/edu.iupui.cs450/Period.java.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/edu.iupui.cs450/index.html" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/edu.iupui.cs450/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/edu.iupui.cs450/index.source.html" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/edu.iupui.cs450/index.source.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/reports/jacoco/test/html/index.html" afterPath="$PROJECT_DIR$/build/reports/jacoco/test/html/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/reports/tests/classes/edu.iupui.cs450.PeriodTest.html" afterPath="$PROJECT_DIR$/build/reports/tests/classes/edu.iupui.cs450.PeriodTest.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/reports/tests/index.html" afterPath="$PROJECT_DIR$/build/reports/tests/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/reports/tests/packages/edu.iupui.cs450.html" afterPath="$PROJECT_DIR$/build/reports/tests/packages/edu.iupui.cs450.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test-results/TEST-edu.iupui.cs450.PeriodTest.xml" afterPath="$PROJECT_DIR$/build/test-results/TEST-edu.iupui.cs450.PeriodTest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/edu/iupui/cs450/PeriodTest.java" afterPath="$PROJECT_DIR$/src/test/java/edu/iupui/cs450/PeriodTest.java" />
-    </list>
+    <list default="true" id="06f314f9-2319-40d4-90b5-27548abc69e5" name="Default" comment="" />
     <ignored path="code-coverage.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -849,7 +820,7 @@
       <workItem from="1509431230498" duration="21571000" />
       <workItem from="1509817677666" duration="22931000" />
       <workItem from="1510117688103" duration="25688000" />
-      <workItem from="1510336769487" duration="52000" />
+      <workItem from="1510336769487" duration="183000" />
     </task>
     <servers />
   </component>
@@ -886,7 +857,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70242000" />
+    <option name="totallyTimeSpent" value="70373000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
