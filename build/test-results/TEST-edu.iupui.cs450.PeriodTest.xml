@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.iupui.cs450.PeriodTest" tests="71" skipped="0" failures="0" errors="0" timestamp="2017-11-09T22:53:24" hostname="Adithyas-MacBook-Air.local" time="0.194">
+<testsuite name="edu.iupui.cs450.PeriodTest" tests="72" skipped="0" failures="0" errors="0" timestamp="2017-11-12T23:35:25" hostname="149-162-209-46.dhcp-in.iupui.edu" time="0.278">
   <properties/>
-  <testcase name="testIsNotZero" classname="edu.iupui.cs450.PeriodTest" time="0.013"/>
+  <testcase name="testIsNotZero" classname="edu.iupui.cs450.PeriodTest" time="0.012"/>
   <testcase name="testNormalized" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
   <testcase name="testOfWeeks" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
   <testcase name="testOfYears" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
   <testcase name="testIfMinusYears" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
   <testcase name="testGetUnits" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
-  <testcase name="testNotNullIsoValidateChrono" classname="edu.iupui.cs450.PeriodTest" time="0.021"/>
-  <testcase name="testIfConditionOfCreate" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
+  <testcase name="testNotNullIsoValidateChrono" classname="edu.iupui.cs450.PeriodTest" time="0.023"/>
+  <testcase name="testIfConditionOfCreate" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
   <testcase name="testGet" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
   <testcase name="testZeroTOString" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
-  <testcase name="testAddTo" classname="edu.iupui.cs450.PeriodTest" time="0.038"/>
+  <testcase name="testAddTo" classname="edu.iupui.cs450.PeriodTest" time="0.04"/>
   <testcase name="testMinus" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
   <testcase name="testParse" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
-  <testcase name="testYearsIsNegative" classname="edu.iupui.cs450.PeriodTest" time="0.005"/>
-  <testcase name="testElseWithYears" classname="edu.iupui.cs450.PeriodTest" time="0.003"/>
-  <testcase name="testFrom" classname="edu.iupui.cs450.PeriodTest" time="0.003"/>
+  <testcase name="testYearsIsNegative" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
+  <testcase name="testElseWithYears" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
+  <testcase name="testFrom" classname="edu.iupui.cs450.PeriodTest" time="0.002"/>
   <testcase name="testPlus" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
-  <testcase name="testPlusDays" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
-  <testcase name="testToString" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
-  <testcase name="testElseScalarMultipliedBy" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
+  <testcase name="testPlusDays" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
+  <testcase name="testToString" classname="edu.iupui.cs450.PeriodTest" time="0.003"/>
+  <testcase name="testElseScalarMultipliedBy" classname="edu.iupui.cs450.PeriodTest" time="0.002"/>
   <testcase name="testElseEquals" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
-  <testcase name="testNormalized3" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
+  <testcase name="testNormalized3" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
   <testcase name="testZeroTotalmonthsSubtractFrom" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
   <testcase name="testOf" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
-  <testcase name="testPlusYears" classname="edu.iupui.cs450.PeriodTest" time="0.003"/>
-  <testcase name="testElseNormalized" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
-  <testcase name="testOfMonths" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
+  <testcase name="testPlusYears" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
+  <testcase name="testElseNormalized" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
+  <testcase name="testOfMonths" classname="edu.iupui.cs450.PeriodTest" time="0.002"/>
   <testcase name="testZeroDaysToString" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
   <testcase name="testInstanceChronoFrom" classname="edu.iupui.cs450.PeriodTest" time="0.002"/>
-  <testcase name="testIsNegative" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
+  <testcase name="testIsNegative" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
   <testcase name="testTotZeroMonthsAddTo" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
-  <testcase name="testelseParseDays" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
-  <testcase name="testelseParseWeek" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
-  <testcase name="testEqualsDays" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
+  <testcase name="testelseParseDays" classname="edu.iupui.cs450.PeriodTest" time="0.003"/>
+  <testcase name="testelseParseWeek" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
+  <testcase name="testEqualsDays" classname="edu.iupui.cs450.PeriodTest" time="0.002"/>
   <testcase name="testMinusMonths" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
   <testcase name="testZeroSubtractFrom" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
-  <testcase name="testEqualsMonths" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
+  <testcase name="testEqualsMonths" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
   <testcase name="testIfOfWithDays" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
-  <testcase name="testIfOfWithMonths" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
-  <testcase name="testToTotalMonths" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
+  <testcase name="testIfOfWithMonths" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
+  <testcase name="testToTotalMonths" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
   <testcase name="testGetChronology" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
   <testcase name="testPlusMonths" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
   <testcase name="testNullParseMonth" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
-  <testcase name="testElseOfWithmonths" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
-  <testcase name="testZeroMonthsToString" classname="edu.iupui.cs450.PeriodTest" time="0.002"/>
+  <testcase name="testElseOfWithmonths" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
+  <testcase name="testZeroMonthsToString" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
   <testcase name="testElseWithDays" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
-  <testcase name="testZeroIfSubtractFrom" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
-  <testcase name="testZeroYearsToString" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
-  <testcase name="testNotZeroAddto" classname="edu.iupui.cs450.PeriodTest" time="0.003"/>
+  <testcase name="testZeroIfSubtractFrom" classname="edu.iupui.cs450.PeriodTest" time="0.002"/>
+  <testcase name="testZeroYearsToString" classname="edu.iupui.cs450.PeriodTest" time="0.002"/>
+  <testcase name="testNotZeroAddto" classname="edu.iupui.cs450.PeriodTest" time="0.04"/>
   <testcase name="testDaysGet" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
-  <testcase name="testStubValidate" classname="edu.iupui.cs450.PeriodTest" time="0.003"/>
+  <testcase name="testStubValidate" classname="edu.iupui.cs450.PeriodTest" time="0.009"/>
   <testcase name="testElseFrom" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
   <testcase name="testMinusYears" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
   <testcase name="testIfOfWithYears" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
@@ -59,19 +59,20 @@
   <testcase name="testMultipliedBy" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
   <testcase name="testElseMultipliedBy" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
   <testcase name="testDaysIsNegative" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
-  <testcase name="testNegated" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
+  <testcase name="testNegated" classname="edu.iupui.cs450.PeriodTest" time="0.004"/>
   <testcase name="testIsZero" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
-  <testcase name="testIfEquals" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
-  <testcase name="testEqualsall" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
+  <testcase name="testIfEquals" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
+  <testcase name="testEqualsall" classname="edu.iupui.cs450.PeriodTest" time="0.003"/>
+  <testcase name="testMonthsIsPositive" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
   <testcase name="testOfDays" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
-  <testcase name="testMonthsIsNegative" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
+  <testcase name="testMonthsIsNegative" classname="edu.iupui.cs450.PeriodTest" time="0.004"/>
   <testcase name="testNullParse" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
-  <testcase name="testValidateNullChrono" classname="edu.iupui.cs450.PeriodTest" time="0.004"/>
+  <testcase name="testValidateNullChrono" classname="edu.iupui.cs450.PeriodTest" time="0.005"/>
   <testcase name="testMinusDays" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
   <testcase name="testSubtractFrom" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
   <testcase name="testParseAll" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
-  <testcase name="testNotIsoChronologyofFrom" classname="edu.iupui.cs450.PeriodTest" time="0.002"/>
-  <testcase name="testelseParse" classname="edu.iupui.cs450.PeriodTest" time="0.0"/>
+  <testcase name="testNotIsoChronologyofFrom" classname="edu.iupui.cs450.PeriodTest" time="0.004"/>
+  <testcase name="testelseParse" classname="edu.iupui.cs450.PeriodTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

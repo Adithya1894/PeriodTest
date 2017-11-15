@@ -437,7 +437,7 @@ public class PeriodTest {
      */
     @Test
     public void testMinusYears() {
-        Period p = Period.of(0, 0, 0);
+        Period p = Period.of(-5, 0, 0);
 
         p.minusYears(-100);
 
@@ -447,11 +447,19 @@ public class PeriodTest {
     @Test
     public void testIfMinusYears() {
 
-        Period p = Period.of(1, 1, 1);
+        Period p = Period.of(1,1,1);
 
+
+       try {
+           p.plusYears(Long.MIN_VALUE);
+       }
+       catch (ArithmeticException e)
+       {
+
+       }
 
         try {
-            p.minusYears(Long.MIN_VALUE);
+            Period.ZERO.minusYears(Long.MIN_VALUE);
         } catch (ArithmeticException e) {
 
         }
